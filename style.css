@@ -1,57 +1,69 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Roboto&display=swap");
 
-body{
-    font-family: 'Orbitron', sans-serif;
-    background-color: #A8DF8E;
+body {
+    font-family: "Orbitron", sans-serif;
+    background-color: #a8df8e;
     overflow: hidden;
 }
-#mainMenu{
+
+h1 {
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+#mainMenu {
     text-align: center;
 }
 
-.box{
+.titleDiv {
     display: flex;
-    background-color: #FFE5E5;
+    justify-content: center;
+    position: relative;
+    margin: 0;
+    width: 100%;
+    height: 15%;
+    background-color: #f3fde8;
+    border: 3px solid grey;
+}
+
+#petChoiceBox {
+    margin-top: 4%;
+    margin-bottom: 0px;
+}
+
+.box {
+    display: flex;
+    background-color: #ffe5e5;
     border: 3px solid black;
     border-radius: 5%;
     box-shadow: 3px 6px 6px;
 }
 
-h1{
-    font-size: 50px;
+#petChoiceList {
+    justify-content: space-around;
+    width: 30%;
+    padding: 4%;
+    margin: 3% auto;
 }
 
-h2{
+#petChoiceList label {
     font-size: 30px;
+    margin-left: 10px;
 }
 
-.radioChoice{
+.radioDiv {
+    display: flex;
+    margin: 5%;
+}
+
+.radioChoice {
     width: 15px;
 }
 
-.titleDiv{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    margin: 0px;
-    width: 100%;
-    height: 15%;
-    background-color: #F3FDE8;
-    margin-top: 0px;
-    border: 3px solid grey;
-}
-
-#petChoiceTitle{
-    color: black;
-}
-
-#petChoiceBox{
-    margin-top: 4%;
-    margin-bottom: 0px;
-}
-
-#nameDiv{
+#nameDiv {
     font-weight: bold;
     flex-direction: column;
     width: 20%;
@@ -60,25 +72,7 @@ h2{
     padding-bottom: 2%;
 }
 
-#petChoiceList{
-    justify-content: space-around;
-    width: 30%;
-    padding: 4%;
-    margin: auto;
-    margin-top: 3%;
-}
-
-#petChoiceList label{
-    font-size: 30px;
-    margin-left: 10px;
-}
-
-.radioDiv{
-    display: flex;
-    margin: 5%;
-}
-
-#inputName{
+#inputName {
     border: 1px solid black;
     font-size: 20px;
     width: 55%;
@@ -86,20 +80,42 @@ h2{
     margin-bottom: 8%;
 }
 
-#readyButton{
+#readyButton {
+    display: inline-block;
     font-size: 20px;
     border: 2px solid black;
-    padding: 5px;
-    background-color: #FFBFBF;
-    width: 25%;
+    padding: 5px 15px;
+    background-color: #ffbfbf;
     margin: auto;
     transition: 0.5s;
 }
 
-#readyButton:hover{
-    background-color: #FFE5E5;
+#readyButton:hover {
+    background-color: #ffe5e5;
     cursor: pointer;
 }
+
+@media (max-width: 1400px) {
+    h1 {
+        font-size: 35px;
+    }
+    h2 {
+        font-size: 25px;
+    }
+    #petChoiceList {
+        padding: 0;
+        width: 50%;
+    }
+
+    #petChoiceList label {
+        font-size: 20px;
+    }
+
+    .box {
+        padding: 0 10px;
+    }
+}
+
 
 #pet-pages {
     display: none;
@@ -168,14 +184,14 @@ h2{
     font-size: 20px;
     border: 2px solid black;
     padding: 5px;
-    background-color: #FFBFBF;
+    background-color: #ffbfbf;
     width: 20%;
     margin: auto;
     transition: 0.5s;
 }
 
-.gameButtons:hover{
-    background-color: #FFE5E5;
+.gameButtons:hover {
+    background-color: #ffe5e5;
     cursor: pointer;
     scale: 1.05;
 }
@@ -184,7 +200,7 @@ h2{
     width: 300px;
 }
 
-#imageDiv{
+#imageDiv {
     display: flex;
     justify-content: center;
 }
