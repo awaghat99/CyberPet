@@ -16,20 +16,24 @@
                     <h2 id="petChoiceTitle">Choose your pet</h2>
 
                     <form id="petChoiceList">
-                        <input type="radio" id="dog" name="pet" />
-                        <label for="dog">Dog</label><br>
-
-                        <input type="radio" id="catC" name="pet" />
-                        <label for="cat">Cat</label><br>
-
-                        <input type="radio" id="hamster" name="pet" />
-                        <label for="hamster">Hamster</label><br>
+                        <div class = "radioDiv">
+                            <input type="radio" class = "radioChoice" id="dog" name="pet" />
+                            <label for="dog">Dog</label>
+                        </div>
+                        <div class = "radioDiv">
+                            <input type="radio" class = "radioChoice" id="cat" name="pet" />
+                            <label for="cat">Cat</label>
+                        </div>
+                        <div class = "radioDiv">
+                            <input type="radio" class = "radioChoice" id="hamster" name="pet" />
+                            <label for="hamster">Hamster</label>
+                        </div>
                     </form>
                 </div>
                 <div id="nameDiv">
                     <h2>Choose pet name:</h2>
-                    <input type="text" />
-                    <button type="button">Ready</button>
+                    <input type="text" id = "inputName"/>
+                    <button type="button" id = "readyButton">Ready</button>
                 </div>
             </div>
         </div>
