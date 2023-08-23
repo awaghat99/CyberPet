@@ -184,3 +184,23 @@ h2{
 .image {
     width: 300px;
 }
+
+#backButton{
+    margin: 0 20px;
+    font-size: 20px;
+    border: 2px solid black;
+    padding: 5px;
+    background-color: #FFBFBF;
+    width: 20%;
+    margin: auto;
+    transition: 0.5s;
+    position: absolute;
+    bottom: 2%;
+    left: 1%;
+}
+
+#backButton:hover{
+    background-color: #FFE5E5;
+    cursor: pointer;
+    scale: 1.05;
+}
