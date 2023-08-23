@@ -1,38 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>CyberPet</title>
-</head>
-<body>
-    <div id = "mainMenu">
-        <div id = "titleDiv">
-            <h1 id = "title">CyberPets</h1>
-        </div>
-        <div id = "petChoiceBox">
-            <div>
-                <h2 id = "petChoiceTitle">Choose your pet</h2>
-
-                <ul id = "petChoiceList">
-                    <li><input type="checkbox" id = "dogChoice" name = "dog"/>
-                    <label for = "dog">Dog</label> </li>
-                    <li><input type="checkbox" id = "catChoice" name = "cat"/>
-                    <label for = "cat">Cat</label> </li>
-                    <li><input type="checkbox" id = "hamsterChoice" name = "hamster"/>
-                    <label for = "hamster">Hamster</label> </li>
-                </ul>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Cyber Pet</title>
+    </head>
+    <body>
+        <div id="mainMenu">
+            <div id="titleDiv">
+                <h1 id="title">CyberPets</h1>
             </div>
-            <div id = "nameDiv">
-                <h2>Choose pet name:</h2>
-                <input type="text">
-                <button type="button">Ready</button>
+            <div id="petChoiceBox">
+                <div>
+                    <h2 id="petChoiceTitle">Choose your pet</h2>
+
+                    <ul id="petChoiceList">
+                        <li>
+                            <input type="checkbox" id="dogChoice" name="dog" />
+                            <label for="dog">Dog</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="catChoice" name="cat" />
+                            <label for="cat">Cat</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="hamsterChoice" name="hamster" />
+                            <label for="hamster">Hamster</label>
+                        </li>
+                    </ul>
+                </div>
+                <div id="nameDiv">
+                    <h2>Choose pet name:</h2>
+                    <input type="text" />
+                    <button type="button">Ready</button>
+                </div>
             </div>
         </div>
-    </div>
-   
-
-    <script src="./script.js"></script>
-</body>
+        <section class="pet-pages">
+            <h2 id="pet-title">Look after your Dog</h2>
+            <div class="bars">
+                <div id="health" class="whole-bar">
+                    <span>health</span>
+                    <div class="health-bar" data-total="1000" data-value="1000">
+                        <div class="bar">
+                            <div class="hit"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="hunger" class="whole-bar">
+                    <span>hunger</span>
+                    <div class="health-bar" data-total="1000" data-value="1000">
+                        <div class="bar">
+                            <div class="hit"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="thirst" class="whole-bar">
+                    <span>thirst</span>
+                    <div class="health-bar" data-total="1000" data-value="1000">
+                        <div class="bar">
+                            <div class="hit"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="custom" class="whole-bar">
+                    <span>custom</span>
+                    <div class="health-bar" data-total="1000" data-value="1000">
+                        <div class="bar">
+                            <div class="hit"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="buttons">
+                <button class="interact-button">Eat</button>
+                <button class="interact-button">Drink</button>
+                <button class="interact-button custom">Custom</button>
+                <button class="interact-button custom">Custom</button>
+            </div>
+            <img src="./images/dog.avif" class="image" />
+        </section>
+        <script src="./script.js"></script>
+    </body>
 </html>
