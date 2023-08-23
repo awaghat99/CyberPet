@@ -15,20 +15,16 @@
                 <div>
                     <h2 id="petChoiceTitle">Choose your pet</h2>
 
-                    <ul id="petChoiceList">
-                        <li>
-                            <input type="checkbox" id="dogChoice" name="dog" />
-                            <label for="dog">Dog</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="catChoice" name="cat" />
-                            <label for="cat">Cat</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="hamsterChoice" name="hamster" />
-                            <label for="hamster">Hamster</label>
-                        </li>
-                    </ul>
+                    <form id="petChoiceList">
+                        <input type="radio" id="dog" name="pet" />
+                        <label for="dog">Dog</label><br>
+
+                        <input type="radio" id="catC" name="pet" />
+                        <label for="cat">Cat</label><br>
+
+                        <input type="radio" id="hamster" name="pet" />
+                        <label for="hamster">Hamster</label><br>
+                    </form>
                 </div>
                 <div id="nameDiv">
                     <h2>Choose pet name:</h2>
