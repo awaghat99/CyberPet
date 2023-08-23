@@ -9,6 +9,14 @@ body{
     text-align: center;
 }
 
+.box{
+    display: flex;
+    background-color: #FFE5E5;
+    border: 3px solid black;
+    border-radius: 5%;
+    box-shadow: 3px 6px 6px;
+}
+
 h1{
     font-size: 50px;
 }
@@ -21,7 +29,7 @@ h2{
     width: 15px;
 }
 
-#titleDiv{
+.titleDiv{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -44,30 +52,20 @@ h2{
 }
 
 #nameDiv{
-    background-color: #FFE5E5;
     font-weight: bold;
-    display: flex;
     flex-direction: column;
-    border: 3px solid black;
     width: 20%;
     margin: auto;
     margin-top: 3.5%;
     padding-bottom: 2%;
-    border-radius: 5%;
-    box-shadow: 3px 6px 6px;
 }
 
 #petChoiceList{
-    background-color: #FFE5E5;
-    display: flex;
     justify-content: space-around;
     width: 30%;
     padding: 4%;
     margin: auto;
     margin-top: 3%;
-    border: 3px solid black;
-    border-radius: 5%;
-    box-shadow: 3px 6px 6px;
 }
 
 #petChoiceList label{
@@ -105,6 +103,7 @@ h2{
 
 .pet-pages {
     display: none;
+    flex-direction: column;
     text-align: center;
 }
 

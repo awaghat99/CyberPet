@@ -8,14 +8,14 @@
     </head>
     <body>
         <div id="mainMenu">
-            <div id="titleDiv">
+            <div class = "titleDiv">
                 <h1 id="title">CyberPets</h1>
             </div>
             <div id="petChoiceBox">
                 <div>
-                    <h2 id="petChoiceTitle">Choose your pet</h2>
+                    <h2  id="petChoiceTitle">Choose your pet</h2>
 
-                    <form id="petChoiceList">
+                    <form class = "box" id="petChoiceList">
                         <div class = "radioDiv">
                             <input type="radio" class = "radioChoice" id="dog" name="pet" />
                             <label for="dog">Dog</label>
@@ -30,7 +30,7 @@
                         </div>
                     </form>
                 </div>
-                <div id="nameDiv">
+                <div class = "box" id="nameDiv">
                     <h2>Choose pet name:</h2>
                     <input type="text" id = "inputName"/>
                     <button type="button" id = "readyButton">Ready</button>
@@ -38,7 +38,9 @@
             </div>
         </div>
         <section class="pet-pages">
-            <h2 id="pet-title">Look after your Dog</h2>
+            <div class = "titleDiv">
+                <h2 id="pet-title">Look after your Dog</h2>
+            </div>
             <div class="bars">
                 <div id="health" class="whole-bar">
                     <span>health</span>
@@ -79,7 +81,9 @@
                 <button class="interact-button custom">Custom</button>
                 <button class="interact-button custom">Custom</button>
             </div>
-            <img src="./images/dog.avif" class="image" />
+            <div id = "imageDiv">
+                <img src="./images/dog.avif" class="image" />
+            </div>
         </section>
         <script src="./script.js"></script>
     </body>
