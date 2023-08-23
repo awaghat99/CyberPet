@@ -101,7 +101,7 @@ h2{
     cursor: pointer;
 }
 
-.pet-pages {
+#pet-pages {
     display: none;
     flex-direction: column;
     text-align: center;
@@ -182,4 +182,9 @@ h2{
 
 .image {
     width: 300px;
+}
+
+#imageDiv{
+    display: flex;
+    justify-content: center;
 }
