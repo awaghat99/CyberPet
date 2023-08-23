@@ -7,7 +7,6 @@ body{
 }
 #mainMenu{
     text-align: center;
-    display: none;
 }
 
 .box{
@@ -103,7 +102,7 @@ h2{
 }
 
 .pet-pages {
-    display: flex;
+    display: none;
     flex-direction: column;
     text-align: center;
 }
