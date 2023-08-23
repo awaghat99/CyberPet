@@ -7,7 +7,6 @@ body{
 }
 #mainMenu{
     text-align: center;
-    display: none;
 }
 
 .box{
@@ -102,8 +101,8 @@ h2{
     cursor: pointer;
 }
 
-.pet-pages {
-    display: flex;
+#pet-pages {
+    display: none;
     flex-direction: column;
     text-align: center;
 }
@@ -183,4 +182,9 @@ h2{
 
 .image {
     width: 300px;
+}
+
+#imageDiv{
+    display: flex;
+    justify-content: center;
 }
