@@ -1,11 +1,11 @@
 import { Dog, Cat, Hamster } from "./class.js";
 const readyBtn = document.getElementById("readyButton");
-const radioButtons = document.querySelectorAll('input[name="pet"');
+const radioButtons = document.querySelectorAll('input[name="pet"]');
 const petPage = document.getElementById("pet-pages");
 const mainMenu = document.getElementById("mainMenu");
 const inputName = document.getElementById("inputName");
 const healthBar = document.getElementsByClassName("health-bar");
-const backButton = document.getElementById('backButton');
+const backButton = document.getElementById("backButton");
 const petPicsDiv = document.getElementById("petPicsDiv");
 const dogPicDiv = document.getElementById("dogPicDiv");
 const catPicDiv = document.getElementById("catPicDiv");
@@ -17,28 +17,41 @@ const drinkButton = document.getElementById("drinkButton");
 const customButton1 = document.getElementById("customButton1");
 const customButton2 = document.getElementById("customButton2");
 const bars = document.getElementsByClassName("bar");
-const custom = document.getElementById('custom');
+const petTitle = document.getElementById("pet-title");
 
 let selectedPet;
+let selectedName;
+
+// readyBtn.disabled = true;
+
+for (let radioButton of radioButtons && inputName.value) {
+    if (radioButton.checked && inputName.value !== "") {
+       readyBtn.disabled = false;
+    }
+}
 
 readyBtn.addEventListener("click", () => {
     console.log("clicked");
+    selectedName = inputName.value;
+    inputName.value = "";
     mainMenu.style.display = "none";
     petPage.style.display = "flex";
     for (let radioButton of radioButtons) {
         if (radioButton.checked) {
             selectedPet = radioButton.value;
+            radioButton.checked = false;
             break;
         }
     }
-    if (selectedPet === "dog") {
+    if (selectedPet === "dog") { 
+        petTitle.innerHTML = `Look after your dog - ${selectedName}`;
         dogPicDiv.style.display = "flex";
         const dog = new Dog();
-        
         customButton1.textContent = "Fetch";
         customButton2.textContent = "Walk";
         eatButton.addEventListener("click", () => {
             dog.eat();
+            console.log(dog.health)
         });
         drinkButton.addEventListener("click", () => {
             dog.drink();
@@ -48,7 +61,7 @@ readyBtn.addEventListener("click", () => {
         });
         customButton2.addEventListener("click", () => {
             dog.walk();
-        })
+        });
         const dogIntervalId = setInterval(() => {
             dog.health -= 5;
             bars[0].style.width = `${dog.health}%`;
@@ -60,16 +73,24 @@ readyBtn.addEventListener("click", () => {
             bars[3].style.width = `${dog.happiness}%`;
             for (let bar of bars) {
                 if (bar.style.width === "0%") {
+                    clearInterval(dogIntervalId);
                     dogPicDiv.style.display = "none";
+                    drinkButton.style.display = "none";
+                    eatButton.style.display = "none";
+                    customButton1.style.display = "none";
+                    customButton2.style.display = "none";
+                    tryAgain.style.display = "flex";
                     deadPicDiv.style.display = "flex";
                     console.log("You lose");
-                    clearInterval(dogIntervalId);
                 }
             }
         }, 500);
     }else if (selectedPet === "cat"){
+        petTitle.innerHTML = `Look after your cat - ${selectedName}`;
         catPicDiv.style.display = "flex";
         const cat = new Cat();
+        customButton1.textContent = "Groom";
+        customButton2.textContent = "Play with wool";
         eatButton.addEventListener("click", () => {
             cat.eat();
         });
@@ -81,7 +102,7 @@ readyBtn.addEventListener("click", () => {
         });
         customButton2.addEventListener("click", () => {
             cat.playWool();
-        })
+        });
         const catIntervalId = setInterval(() => {
             cat.health -= 5;
             bars[0].style.width = `${cat.health}%`;
@@ -95,15 +116,23 @@ readyBtn.addEventListener("click", () => {
             for (let bar of bars) {
                 if (bar.style.width === "0%") {
                     catPicDiv.style.display = "none";
+                    tryAgain.style.display = "flex";
+                    drinkButton.style.display = "none";
+                    eatButton.style.display = "none";
+                    customButton1.style.display = "none";
+                    customButton2.style.display = "none";
                     deadPicDiv.style.display = "flex";
-                    console.log("You lose")
-                    clearInterval(catIntervalId)
+                    console.log("You lose");
+                    clearInterval(catIntervalId);
                 }
             }
         }, 500);
     } else {
+        petTitle.innerHTML = `Look after your hamster - ${selectedName}`;
         hamsterPicDiv.style.display = "flex";
-        const hamster = new Hamster ();
+        const hamster = new Hamster();
+        customButton1.textContent = "Pet";
+        customButton2.textContent = "Run on wheel";
         eatButton.addEventListener("click", () => {
             hamster.eat();
         });
@@ -115,70 +144,68 @@ readyBtn.addEventListener("click", () => {
         });
         customButton2.addEventListener("click", () => {
             hamster.runOnWheel();
-        })
+        });
         const hamsterIntervalId = setInterval(() => {
             hamster.health -= 5;
             bars[0].style.width = `${hamster.health}%`;
             hamster.hunger -= 5;
             bars[1].style.width = `${hamster.hunger}%`;
             hamster.thirst -= 5;
-            bars[2].style.width = `${dog.thirst}%`;
+            bars[2].style.width = `${hamster.thirst}%`;
             hamster.interested -= 5;
-            bars[3].style.width = `${dog.happiness}%`;
-            console.log(`${bars[0].style.width}`)
+            bars[3].style.width = `${hamster.interested}%`;
+            console.log(`${bars[0].style.width}`);
             for (let bar of bars) {
                 if (bar.style.width === "0%") {
                     hamsterPicDiv.style.display = "none";
                     deadPicDiv.style.display = "flex";
-                    console.log("You lose")
-                    clearInterval(hamsterIntervalId)
+                    drinkButton.style.display = "none";
+                    eatButton.style.display = "none";
+                    customButton1.style.display = "none";
+                    customButton2.style.display = "none";
+                    tryAgain.style.display = "flex";
+                    console.log("You lose");
+                    clearInterval(hamsterIntervalId);
                 }
             }
         }, 500);
     }
 }),
 
+    // code for tryAgain
+    tryAgain.addEventListener("click", () => {
+        tryAgain.style.display = "none";
+        deadPicDiv.style.display = "none";
+        drinkButton.style.display = "flex";
+        eatButton.style.display = "flex";
+        customButton1.style.display = "flex";
+        customButton2.style.display = "flex";
+        if (selectedPet === "dog") {
+            dogPicDiv.style.display = "flex";
+        } else if (selectedPet === "cat") {
+            catPicDiv.style.display = "flex";
+        } else {
+            hamsterPicDiv.style.display = "flex";
+        }
+        // reset bars
+        // start bars
+    }),
+    backButton.addEventListener("click", () => {
+        mainMenu.style.display = "block";
+        petPage.style.display = "none";
+        tryAgain.style.display = "none";
+        drinkButton.style.display = "flex";
+        eatButton.style.display = "flex";
+        customButton1.style.display = "flex";
+        customButton2.style.display = "flex";
+        dogPicDiv.style.display = "none";
+        catPicDiv.style.display = "none";
+        hamsterPicDiv.style.display = "none";
+        // reset bars
+        // dont start bars
+    });
 
-
-// function code for when stat reaches 0
-    // loseFunction = () => {
-    //     petPicsDiv.style.display = "none";
-    //     deadPicDiv.style.display = "flex";
-    //     tryAgain.style.display = "flex";
-    //     drinkButton.style.display = "none";
-    //     eatButton.style.display = "none";
-    //     customButton1.style.display = "none";
-    //     customButton2.style.display = "none";
-    //     // depleting = 0
-    // }
-
-// code for tryAgain
-tryAgain.addEventListener("click", () => {
-    tryAgain.style.display = "none";
-    drinkButton.style.display = "flex";
-    eatButton.style.display = "flex";
-    customButton1.style.display = "flex";
-    customButton2.style.display = "flex";
-    // reset bars
-    // start bars
-}),
-
-backButton.addEventListener('click', () => {
-    mainMenu.style.display = "block";
-    petPage.style.display = "none";
-    tryAgain.style.display = "none";
-    drinkButton.style.display = "flex";
-    eatButton.style.display = "flex";
-    customButton1.style.display = "flex";
-    customButton2.style.display = "flex";
-    dogPicDiv.style.display = "none";
-    catPicDiv.style.display = "none";
-    hamsterPicDiv.style.display = "none";
-    // reset bars
-    // dont start bars
-})
-
-// // // code for when bar levels changing 
+// // // code for when bar levels changing
 // setInterval(() => {
 //     if (bars.style.width >= 70%){
 //         bars.style.background = "rgb(13, 150, 13)";
