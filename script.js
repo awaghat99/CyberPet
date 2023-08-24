@@ -16,6 +16,11 @@ const dogPicDiv = document.getElementById("dogPicDiv");
 const catPicDiv = document.getElementById("catPicDiv");
 const hamsterPicDiv = document.getElementById("hamsterPicDiv");
 const deadPicDiv = document.getElementById("deadPicDiv");
+const eatButtonAudio = document.getElementById("eatButtonAudio");
+const drinkButtonAudio = document.getElementById("drinkButtonAudio");
+const customButton1Audio = document.getElementById("customButton1Audio");
+const customButton2Audio = document.getElementById("customButton2Audio");
+const startAudio = document.getElementById("startSound");
 
 let selectedPet;
 let selectedName;
@@ -27,17 +32,17 @@ readyBtn.disabled = true;
 
 for (let radioButton of radioButtons) {
     radioButton.addEventListener("click", () => {
-        console.log("working?");
         readyBtn.disabled = false;
     });
 }
 
 readyBtn.addEventListener("click", () => {
-    console.log("clicked");
     selectedName = inputName.value;
     inputName.value = "";
     mainMenu.style.display = "none";
     petPage.style.display = "flex";
+    startAudio.load();
+    startAudio.play();
     for (let radioButton of radioButtons) {
         if (radioButton.checked) {
             selectedPet = radioButton.value;
@@ -55,6 +60,8 @@ readyBtn.addEventListener("click", () => {
 }),
     // code for tryAgain
     tryAgain.addEventListener("click", () => {
+        startAudio.load();
+        startAudio.play();
         tryAgain.style.display = "none";
         backButton.style.display = "none";
         deadPicDiv.style.display = "none";
@@ -70,15 +77,6 @@ readyBtn.addEventListener("click", () => {
             playHamsterGame(hamster);
         }
     });
-
-// else if (selectedPet === "cat") {
-//     catPicDiv.style.display = "flex";
-// } else {
-//     hamsterPicDiv.style.display = "flex";
-//     }
-//     // reset bars
-//     // start bars
-// }),
 
 backButton.addEventListener("click", () => {
     dog.health = 100;
@@ -97,17 +95,25 @@ backButton.addEventListener("click", () => {
     catPicDiv.style.display = "none";
     hamsterPicDiv.style.display = "none";
     readyBtn.disabled = true;
-
-    // dont start bars
 });
 
-// // // code for when bar levels changing
-// setInterval(() => {
-//     if (bars.style.width >= 70%){
-//         bars.style.background = "rgb(13, 150, 13)";
-//     } else if (bars.style.width < 70% && bars.style.width >= 35%){
-//         bars.style.background =  "orange";
-//     } else {
-//         bars.style.background =  "#c54";
-//     }
-// }, 100)
+// button sound on click
+eatButton.addEventListener("click", () => {
+   eatButtonAudio.load();
+   eatButtonAudio.play();
+})
+
+drinkButton.addEventListener("click", () => {
+    drinkButtonAudio.load();
+    drinkButtonAudio.play();
+ })
+
+ customButton1.addEventListener("click", () => {
+    customButton1Audio.load();
+    customButton1Audio.play();
+ })
+
+ customButton2.addEventListener("click", () => {
+    customButton2Audio.load();
+    customButton2Audio.play();
+ })

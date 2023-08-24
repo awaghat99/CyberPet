@@ -83,6 +83,8 @@ export const playDogGame = (dog, selectedName) => {
                 tryAgain.style.display = "flex";
                 deadPicDiv.style.display = "flex";
                 console.log("You lose");
+                loseAudio.load();
+                loseAudio.play();
             }
         }
         for (let i = 0; i < dogStats.length; i++) {
@@ -146,8 +148,6 @@ export const playCatGame = (cat, selectedName) => {
         console.log(`${bars[0].style.width}`);
         for (let bar of bars) {
             if (bar.style.width === "0%") {
-                clearInterval(catIntervalId);
-                backButton.style.display = "block";
                 catPicDiv.style.display = "none";
                 tryAgain.style.display = "flex";
                 drinkButton.style.display = "none";
@@ -156,6 +156,9 @@ export const playCatGame = (cat, selectedName) => {
                 customButton2.style.display = "none";
                 deadPicDiv.style.display = "flex";
                 console.log("You lose");
+                clearInterval(catIntervalId);
+                loseAudio.load();
+                loseAudio.play();
             }
         }
         for (let i = 0; i < catStats.length; i++) {
@@ -168,6 +171,7 @@ export const playCatGame = (cat, selectedName) => {
             }
         }
     }, 500);
+    
 };
 
 export const playHamsterGame = (hamster, selectedName) => {
@@ -219,6 +223,7 @@ export const playHamsterGame = (hamster, selectedName) => {
         console.log(`${bars[0].style.width}`);
         for (let bar of bars) {
             if (bar.style.width === "0%") {
+                backButton.style.display = "flex";
                 hamsterPicDiv.style.display = "none";
                 deadPicDiv.style.display = "flex";
                 drinkButton.style.display = "none";
@@ -228,6 +233,8 @@ export const playHamsterGame = (hamster, selectedName) => {
                 tryAgain.style.display = "flex";
                 console.log("You lose");
                 clearInterval(hamsterIntervalId);
+                loseAudio.load();
+                loseAudio.play();
             }
         }
         for (let i = 0; i < hamsterStats.length; i++) {
