@@ -1,39 +1,54 @@
-// const animalClasses = require("./class.js")
-const readyBtn = document.getElementById('readyButton');
+import { Dog } from "./class.js";
+const readyBtn = document.getElementById("readyButton");
 const radioButtons = document.querySelectorAll('input[name="pet"');
-const petPage = document.getElementById('pet-pages');
-const mainMenu = document.getElementById('mainMenu');
+const petPage = document.getElementById("pet-pages");
+const mainMenu = document.getElementById("mainMenu");
 const inputName = document.getElementById("inputName");
 const healthBar = document.getElementsByClassName("health-bar");
-const backButton = document.getElementById('backButton')
+const bars = document.getElementsByClassName("bar");
+const backButton = document.getElementById("backButton");
 
-readyBtn.addEventListener('click', () => {
+readyBtn.addEventListener("click", () => {
+    console.log("clicked");
     mainMenu.style.display = "none";
     petPage.style.display = "flex";
-})
+    let selectedPet;
+    for (let radioButton of radioButtons) {
+        if (radioButton.checked) {
+            selectedPet = radioButton.value;
+            break;
+        }
+    }
+    if (selectedPet === "dog") {
+        const dog = new Dog();
+        const dogIntervalId = setInterval(() => {
+            dog.health -= 5;
+            bars[0].style.width = `${dog.health}%`;
+            dog.hunger -= 5;
+            bars[1].style.width = `${dog.hunger}%`;
+            dog.thirst -= 5;
+            bars[2].style.width = `${dog.thirst}%`;
+            dog.happiness -= 5;
+            bars[3].style.width = `${dog.happiness}%`;
+            console.log(`${bars[0].style.width}`)
+            for (let bar of bars) {
+                if (bar.style.width === "0%") {
+                    console.log("You lose")
+                    clearInterval(dogIntervalId)
+                }
+            }
+        }, 500);
+    }
+});
 
-// readyBtn.addEventListener('click',() => {
-//     let selectedPet;
-//     for(let radioButton of radioButtons) {
-//         if (radioButton.checked) {
-//             selectedPet = radioButton.value;
-//             break;
-//         }
-//     }
-//     if (selectedPet == "dog") {
-//         const dog = new animalClasses.Dog
-//     }
-// });
-
-backButton.addEventListener('click', () => {
+backButton.addEventListener("click", () => {
     mainMenu.style.display = "block";
     petPage.style.display = "none";
-})
+});
 
 // // code for when bar levels changing set interval?
 // for (healthBar >= 70){
 // }
-
 
 // // code for when ok
 // for (healthBar < 70 && healthBar > 40){
