@@ -41,7 +41,7 @@ export class Dog extends Animals {
     }
 }
 
-class Cat extends Animals {
+export class Cat extends Animals {
     constructor() {
         super();
         this.content = 100;
@@ -65,7 +65,7 @@ class Cat extends Animals {
     }
 }
 
-class Hamster extends Animals {
+export class Hamster extends Animals {
     constructor() {
         super();
         this.interested = 100;
