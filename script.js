@@ -7,23 +7,23 @@ const inputName = document.getElementById("inputName");
 const healthBar = document.getElementsByClassName("health-bar");
 const backButton = document.getElementById('backButton')
 
-// readyBtn.addEventListener('click', () => {
-//     mainMenu.style.display = "none";
-//     petPage.style.display = "flex";
-// })
+readyBtn.addEventListener('click', () => {
+    mainMenu.style.display = "none";
+    petPage.style.display = "flex";
+})
 
-readyBtn.addEventListener('click',() => {
-    let selectedPet;
-    for(let radioButton of radioButtons) {
-        if (radioButton.checked) {
-            selectedPet = radioButton.value;
-            break;
-        }
-    }
-    if (selectedPet == "dog") {
-        const dog = new animalClasses.Dog
-    }
-});
+// readyBtn.addEventListener('click',() => {
+//     let selectedPet;
+//     for(let radioButton of radioButtons) {
+//         if (radioButton.checked) {
+//             selectedPet = radioButton.value;
+//             break;
+//         }
+//     }
+//     if (selectedPet == "dog") {
+//         const dog = new animalClasses.Dog
+//     }
+// });
 
 backButton.addEventListener('click', () => {
     mainMenu.style.display = "block";
