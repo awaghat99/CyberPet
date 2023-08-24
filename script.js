@@ -5,16 +5,25 @@ const petPage = document.getElementById("pet-pages");
 const mainMenu = document.getElementById("mainMenu");
 const inputName = document.getElementById("inputName");
 const healthBar = document.getElementsByClassName("health-bar");
-const bars = document.getElementsByClassName("bar");
-const backButton = document.getElementById("backButton");
+const backButton = document.getElementById('backButton');
+const petPicsDiv = document.getElementById("petPicsDiv");
+const dogPicDiv = document.getElementById("dogPicDiv");
+const catPicDiv = document.getElementById("catPicDiv");
+const hamsterPicDiv = document.getElementById("hamsterPicDiv");
+const deadPicDiv = document.getElementById("deadPicDiv");
+const tryAgain = document.getElementById("tryAgain");
 const eatButton = document.getElementById("eatButton");
-const drinkButton = document.getElementById("drinkButton")
+const drinkButton = document.getElementById("drinkButton");
+const customButton1 = document.getElementById("customButton1");
+const customButton2 = document.getElementById("customButton2");
+const bars = document.getElementsByClassName("bar");
+
+let selectedPet;
 
 readyBtn.addEventListener("click", () => {
     console.log("clicked");
     mainMenu.style.display = "none";
     petPage.style.display = "flex";
-    let selectedPet;
     for (let radioButton of radioButtons) {
         if (radioButton.checked) {
             selectedPet = radioButton.value;
@@ -22,6 +31,7 @@ readyBtn.addEventListener("click", () => {
         }
     }
     if (selectedPet === "dog") {
+        dogPicDiv.style.display = "flex";
         const dog = new Dog();
         eatButton.addEventListener("click", () => {
             dog.eat();
@@ -40,14 +50,15 @@ readyBtn.addEventListener("click", () => {
             bars[3].style.width = `${dog.happiness}%`;
             for (let bar of bars) {
                 if (bar.style.width === "0%") {
+                    dogPicDiv.style.display = "none";
+                    deadPicDiv.style.display = "flex";
                     console.log("You lose");
                     clearInterval(dogIntervalId);
                 }
             }
         }, 500);
-    }
-
-    if (selectedPet === "cat") {
+    }else if (selectedPet === "cat"){
+        catPicDiv.style.display = "flex";
         const cat = new Cat();
         const catIntervalId = setInterval(() => {
             cat.health -= 5;
@@ -61,53 +72,85 @@ readyBtn.addEventListener("click", () => {
             console.log(`${bars[0].style.width}`);
             for (let bar of bars) {
                 if (bar.style.width === "0%") {
-                    console.log("You lose");
-                    clearInterval(catIntervalId);
+                    catPicDiv.style.display = "none";
+                    deadPicDiv.style.display = "flex";
+                    console.log("You lose")
+                    clearInterval(catIntervalId)
                 }
             }
         }, 500);
-    }
-
-    if (selectedPet === "hamster") {
-        const hamster = new hamster();
+    } else {
+        hamsterPicDiv.style.display = "flex";
+        const hamster = new Hamster ();
         const hamsterIntervalId = setInterval(() => {
             hamster.health -= 5;
             bars[0].style.width = `${hamster.health}%`;
             hamster.hunger -= 5;
             bars[1].style.width = `${hamster.hunger}%`;
             hamster.thirst -= 5;
-            bars[2].style.width = `${hamster.thirst}%`;
+            bars[2].style.width = `${dog.thirst}%`;
             hamster.interested -= 5;
-            bars[3].style.width = `${hamster.interested}%`;
-            console.log(`${bars[0].style.width}`);
+            bars[3].style.width = `${dog.happiness}%`;
+            console.log(`${bars[0].style.width}`)
             for (let bar of bars) {
                 if (bar.style.width === "0%") {
-                    console.log("You lose");
-                    clearInterval(hamsterIntervalId);
+                    hamsterPicDiv.style.display = "none";
+                    deadPicDiv.style.display = "flex";
+                    console.log("You lose")
+                    clearInterval(hamsterIntervalId)
                 }
             }
         }, 500);
     }
-});
+}),
 
-backButton.addEventListener("click", () => {
+
+
+// function code for when stat reaches 0
+    // loseFunction = () => {
+    //     petPicsDiv.style.display = "none";
+    //     deadPicDiv.style.display = "flex";
+    //     tryAgain.style.display = "flex";
+    //     drinkButton.style.display = "none";
+    //     eatButton.style.display = "none";
+    //     customButton1.style.display = "none";
+    //     customButton2.style.display = "none";
+    //     // depleting = 0
+    // }
+
+// code for tryAgain
+tryAgain.addEventListener("click", () => {
+    tryAgain.style.display = "none";
+    drinkButton.style.display = "flex";
+    eatButton.style.display = "flex";
+    customButton1.style.display = "flex";
+    customButton2.style.display = "flex";
+    // reset bars
+    // start bars
+}),
+
+backButton.addEventListener('click', () => {
     mainMenu.style.display = "block";
     petPage.style.display = "none";
-});
+    tryAgain.style.display = "none";
+    drinkButton.style.display = "flex";
+    eatButton.style.display = "flex";
+    customButton1.style.display = "flex";
+    customButton2.style.display = "flex";
+    dogPicDiv.style.display = "none";
+    catPicDiv.style.display = "none";
+    hamsterPicDiv.style.display = "none";
+    // reset bars
+    // dont start bars
+})
 
-// // code for when bar levels changing set interval?
-// for (healthBar >= 70){
-// }
-
-// // code for when ok
-// for (healthBar < 70 && healthBar > 40){
-// }
-
-// // code for when sad
-// for (healthBar <= 40){
-// }
-
-// // code for when you lose(timer for total time?), lose popup, play again
-// if (healthBar = 0){
-
-// };
+// // // code for when bar levels changing 
+// setInterval(() => {
+//     if (bars.style.width >= 70%){
+//         bars.style.background = "rgb(13, 150, 13)";
+//     } else if (bars.style.width < 70% && bars.style.width >= 35%){
+//         bars.style.background =  "orange";
+//     } else {
+//         bars.style.background =  "#c54";
+//     }
+// }, 100)
