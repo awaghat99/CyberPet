@@ -45,6 +45,21 @@ export const playDogGame = (dog, selectedName) => {
     customButton2.addEventListener("click", () => {
         dog.walk();
     });
+    document.addEventListener("keyup", (event) => {
+        if (event.key === 'f') {
+            dog.eat();
+        }
+        else if (event.key === 'g') {
+            dog.drink();
+        }
+        else if (event.key === 'h') {
+            dog.fetch();
+        } 
+        else if (event.key === 'j') {
+            dog.walk();
+        }
+     });
+
     const dogIntervalId = setInterval(() => {
         setTimeout(() => {
             dog.health -= 5;
@@ -105,6 +120,20 @@ export const playCatGame = (cat, selectedName) => {
     customButton2.addEventListener("click", () => {
         cat.playWool();
     });
+    document.addEventListener("keyup", (event) => {
+        if (event.key === 'f') {
+            cat.eat();
+        }
+        else if (event.key === 'g') {
+            cat.drink();
+        }
+        else if (event.key === 'h') {
+            cat.groom();
+        } 
+        else if (event.key === 'j') {
+            dog.playWool();
+        }
+     });
     const catIntervalId = setInterval(() => {
         cat.health -= 5;
         bars[0].style.width = `${cat.health}%`;
@@ -164,6 +193,20 @@ export const playHamsterGame = (hamster, selectedName) => {
     customButton2.addEventListener("click", () => {
         hamster.runOnWheel();
     });
+    document.addEventListener("keyup", (event) => {
+        if (event.key === 'f') {
+            hamster.eat();
+        }
+        else if (event.key === 'g') {
+            hamster.drink();
+        }
+        else if (event.key === 'h') {
+            hamster.pet();
+        } 
+        else if (event.key === 'j') {
+            hamster.runOnWheel();
+        }
+     });
     const hamsterIntervalId = setInterval(() => {
         hamster.health -= 5;
         bars[0].style.width = `${hamster.health}%`;
