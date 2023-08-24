@@ -12,17 +12,22 @@ const deadPicDiv = document.getElementById("deadPicDiv");
 const backButton = document.getElementById("backButton");
 const tryAgain = document.getElementById("tryAgain");
 
+const resetGenericStats = (pet) => {
+    pet.health = 100;
+    pet.hunger = 100;
+    pet.thirst = 100;
+    bars[0].style.width = `${pet.health}%`;
+    bars[1].style.width = `${pet.hunger}%`;
+    bars[2].style.width = `${pet.thirst}%`;
+};
+
 export const playDogGame = (dog, selectedName) => {
-    dog.health = 100;
-    dog.hunger = 100;
-    dog.thirst = 100;
+    resetGenericStats(dog);
     dog.happiness = 100;
-    let dogStats = ["health", "hunger", "thirst", "happiness"];
-    bars[0].style.width = `${dog.health}%`;
-    bars[1].style.width = `${dog.hunger}%`;
-    bars[2].style.width = `${dog.thirst}%`;
     bars[3].style.width = `${dog.happiness}%`;
-    petTitle.innerHTML = `Look after your dog - ${selectedName}`;
+
+    let dogStats = ["health", "hunger", "thirst", "happiness"];
+
     petTitle.innerHTML = `Look after your dog - ${selectedName}`;
     dogPicDiv.style.display = "flex";
     customButton1.textContent = "Fetch";
@@ -78,15 +83,11 @@ export const playDogGame = (dog, selectedName) => {
 };
 
 export const playCatGame = (cat, selectedName) => {
-    cat.health = 100;
-    cat.hunger = 100;
-    cat.thirst = 100;
+    resetGenericStats(cat);
     cat.content = 100;
-    let catStats = ["health", "hunger", "thirst", "content"];
-    bars[0].style.width = `${cat.health}%`;
-    bars[1].style.width = `${cat.hunger}%`;
-    bars[2].style.width = `${cat.thirst}%`;
     bars[3].style.width = `${cat.content}%`;
+    let catStats = ["health", "hunger", "thirst", "content"];
+
     petTitle.innerHTML = `Look after your cat - ${selectedName}`;
     catPicDiv.style.display = "flex";
     customButton1.textContent = "Groom";
@@ -141,15 +142,11 @@ export const playCatGame = (cat, selectedName) => {
 };
 
 export const playHamsterGame = (hamster, selectedName) => {
-    hamster.health = 100;
-    hamster.hunger = 100;
-    hamster.thirst = 100;
+    resetGenericStats(hamster);
     hamster.interested = 100;
-    let hamsterStats = ["health", "hunger", "thirst", "interested"];
-    bars[0].style.width = `${hamster.health}%`;
-    bars[1].style.width = `${hamster.hunger}%`;
-    bars[2].style.width = `${hamster.thirst}%`;
     bars[3].style.width = `${hamster.interested}%`;
+    let hamsterStats = ["health", "hunger", "thirst", "interested"];
+    
     petTitle.innerHTML = `Look after your hamster - ${selectedName}`;
     hamsterPicDiv.style.display = "flex";
     customSpan.textContent = "INTEREST";
