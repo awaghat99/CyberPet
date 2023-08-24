@@ -204,7 +204,7 @@ h2 {
 }
 
 #dogPicDiv {
-    display: flex;
+    display: none;
     justify-content: center;
 }
 
