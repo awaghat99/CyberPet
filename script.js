@@ -17,11 +17,15 @@ const drinkButton = document.getElementById("drinkButton");
 const customButton1 = document.getElementById("customButton1");
 const customButton2 = document.getElementById("customButton2");
 const bars = document.getElementsByClassName("bar");
+const petTitle = document.getElementById("pet-title");
 
 let selectedPet;
+let selectedName;
 
 readyBtn.addEventListener("click", () => {
     console.log("clicked");
+    selectedName = inputName.value;
+    inputName.value = "";
     mainMenu.style.display = "none";
     petPage.style.display = "flex";
     for (let radioButton of radioButtons) {
@@ -30,7 +34,8 @@ readyBtn.addEventListener("click", () => {
             break;
         }
     }
-    if (selectedPet === "dog") {
+    if (selectedPet === "dog") { 
+        petTitle.innerHTML = `Look after your dog - ${selectedName}`;
         dogPicDiv.style.display = "flex";
         const dog = new Dog();
         eatButton.addEventListener("click", () => {
@@ -58,6 +63,7 @@ readyBtn.addEventListener("click", () => {
             }
         }, 500);
     }else if (selectedPet === "cat"){
+        petTitle.innerHTML = `Look after your cat - ${selectedName}`;
         catPicDiv.style.display = "flex";
         const cat = new Cat();
         const catIntervalId = setInterval(() => {
@@ -80,6 +86,7 @@ readyBtn.addEventListener("click", () => {
             }
         }, 500);
     } else {
+        petTitle.innerHTML = `Look after your hamster - ${selectedName}`;
         hamsterPicDiv.style.display = "flex";
         const hamster = new Hamster ();
         const hamsterIntervalId = setInterval(() => {
