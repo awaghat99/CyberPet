@@ -17,6 +17,7 @@ export const playDogGame = (dog, selectedName) => {
     dog.hunger = 100;
     dog.thirst = 100;
     dog.happiness = 100;
+    let dogStats = ["health", "hunger", "thirst", "happiness"];
     bars[0].style.width = `${dog.health}%`;
     bars[1].style.width = `${dog.hunger}%`;
     bars[2].style.width = `${dog.thirst}%`;
@@ -29,7 +30,6 @@ export const playDogGame = (dog, selectedName) => {
     customSpan.textContent = "HAPPINESS";
     eatButton.addEventListener("click", () => {
         dog.eat();
-        console.log(dog.health);
     });
     drinkButton.addEventListener("click", () => {
         dog.drink();
@@ -65,6 +65,15 @@ export const playDogGame = (dog, selectedName) => {
                 console.log("You lose");
             }
         }
+        for (let i = 0; i < dogStats.length; i++) {
+            if (dog[dogStats[i]] < 65 && dog[dogStats[i]] >= 31) {
+                bars[i].style.backgroundColor = "orange";
+            } else if (dog[dogStats[i]] <= 30) {
+                bars[i].style.backgroundColor = "red";
+            } else {
+                bars[i].style.backgroundColor = "green";
+            }
+        }
     }, 500);
 };
 
@@ -73,6 +82,7 @@ export const playCatGame = (cat, selectedName) => {
     cat.hunger = 100;
     cat.thirst = 100;
     cat.content = 100;
+    let catStats = ["health", "hunger", "thirst", "content"];
     bars[0].style.width = `${cat.health}%`;
     bars[1].style.width = `${cat.hunger}%`;
     bars[2].style.width = `${cat.thirst}%`;
@@ -106,6 +116,8 @@ export const playCatGame = (cat, selectedName) => {
         console.log(`${bars[0].style.width}`);
         for (let bar of bars) {
             if (bar.style.width === "0%") {
+                clearInterval(catIntervalId);
+                backButton.style.display = "block";
                 catPicDiv.style.display = "none";
                 tryAgain.style.display = "flex";
                 drinkButton.style.display = "none";
@@ -114,7 +126,15 @@ export const playCatGame = (cat, selectedName) => {
                 customButton2.style.display = "none";
                 deadPicDiv.style.display = "flex";
                 console.log("You lose");
-                clearInterval(catIntervalId);
+            }
+        }
+        for (let i = 0; i < catStats.length; i++) {
+            if (cat[catStats[i]] < 65 && cat[catStats[i]] >= 31) {
+                bars[i].style.backgroundColor = "orange";
+            } else if (cat[catStats[i]] <= 30) {
+                bars[i].style.backgroundColor = "red";
+            } else {
+                bars[i].style.backgroundColor = "green";
             }
         }
     }, 500);
@@ -125,6 +145,7 @@ export const playHamsterGame = (hamster, selectedName) => {
     hamster.hunger = 100;
     hamster.thirst = 100;
     hamster.interested = 100;
+    let hamsterStats = ["health", "hunger", "thirst", "interested"];
     bars[0].style.width = `${hamster.health}%`;
     bars[1].style.width = `${hamster.hunger}%`;
     bars[2].style.width = `${hamster.thirst}%`;
@@ -167,6 +188,15 @@ export const playHamsterGame = (hamster, selectedName) => {
                 tryAgain.style.display = "flex";
                 console.log("You lose");
                 clearInterval(hamsterIntervalId);
+            }
+        }
+        for (let i = 0; i < hamsterStats.length; i++) {
+            if (hamster[hamsterStats[i]] < 65 && hamster[hamsterStats[i]] >= 31) {
+                bars[i].style.backgroundColor = "orange";
+            } else if (hamster[hamsterStats[i]] <= 30) {
+                bars[i].style.backgroundColor = "red";
+            } else {
+                bars[i].style.backgroundColor = "green";
             }
         }
     }, 500);
