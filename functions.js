@@ -1,5 +1,3 @@
-import { Dog, Cat, Hamster } from "./class.js";
-
 const eatButton = document.getElementById("eatButton");
 const drinkButton = document.getElementById("drinkButton");
 const customButton1 = document.getElementById("customButton1");
@@ -15,6 +13,15 @@ const backButton = document.getElementById("backButton");
 const tryAgain = document.getElementById("tryAgain");
 
 export const playDogGame = (dog, selectedName) => {
+    dog.health = 100;
+    dog.hunger = 100;
+    dog.thirst = 100;
+    dog.happiness = 100;
+    bars[0].style.width = `${dog.health}%`;
+    bars[1].style.width = `${dog.hunger}%`;
+    bars[2].style.width = `${dog.thirst}%`;
+    bars[3].style.width = `${dog.happiness}%`;
+    petTitle.innerHTML = `Look after your dog - ${selectedName}`;
     petTitle.innerHTML = `Look after your dog - ${selectedName}`;
     dogPicDiv.style.display = "flex";
     customButton1.textContent = "Fetch";
@@ -62,6 +69,14 @@ export const playDogGame = (dog, selectedName) => {
 };
 
 export const playCatGame = (cat, selectedName) => {
+    cat.health = 100;
+    cat.hunger = 100;
+    cat.thirst = 100;
+    cat.content = 100;
+    bars[0].style.width = `${cat.health}%`;
+    bars[1].style.width = `${cat.hunger}%`;
+    bars[2].style.width = `${cat.thirst}%`;
+    bars[3].style.width = `${cat.content}%`;
     petTitle.innerHTML = `Look after your cat - ${selectedName}`;
     catPicDiv.style.display = "flex";
     customButton1.textContent = "Groom";
@@ -106,6 +121,14 @@ export const playCatGame = (cat, selectedName) => {
 };
 
 export const playHamsterGame = (hamster, selectedName) => {
+    hamster.health = 100;
+    hamster.hunger = 100;
+    hamster.thirst = 100;
+    hamster.interested = 100;
+    bars[0].style.width = `${hamster.health}%`;
+    bars[1].style.width = `${hamster.hunger}%`;
+    bars[2].style.width = `${hamster.thirst}%`;
+    bars[3].style.width = `${hamster.interested}%`;
     petTitle.innerHTML = `Look after your hamster - ${selectedName}`;
     hamsterPicDiv.style.display = "flex";
     customSpan.textContent = "INTEREST";
@@ -146,119 +169,5 @@ export const playHamsterGame = (hamster, selectedName) => {
                 clearInterval(hamsterIntervalId);
             }
         }
-    }, 500);
-};
-
-export const tryAgainDog = (dog) => {
-    dogPicDiv.style.display = "flex";
-    dog.health = 100;
-    dog.hunger = 100;
-    dog.thirst = 100;
-    dog.happiness = 100;
-    bars[0].style.width = `${dog.health}%`;
-    bars[1].style.width = `${dog.hunger}%`;
-    bars[2].style.width = `${dog.thirst}%`;
-    bars[3].style.width = `${dog.happiness}%`;
-    const dogIntervalId = setInterval(() => {
-        dog.health -= 5;
-        bars[0].style.width = `${dog.health}%`;
-        dog.hunger -= 5;
-        bars[1].style.width = `${dog.hunger}%`;
-        dog.thirst -= 5;
-        bars[2].style.width = `${dog.thirst}%`;
-        dog.happiness -= 5;
-        bars[3].style.width = `${dog.happiness}%`;
-        setTimeout(() => {
-            for (let bar of bars) {
-                if (bar.style.width === "0%") {
-                    clearInterval(dogIntervalId);
-                    backButton.style.display = "block";
-                    dogPicDiv.style.display = "none";
-                    drinkButton.style.display = "none";
-                    eatButton.style.display = "none";
-                    customButton1.style.display = "none";
-                    customButton2.style.display = "none";
-                    tryAgain.style.display = "flex";
-                    deadPicDiv.style.display = "flex";
-                    console.log("You lose");
-                }
-            }
-        }, 500);
-    }, 500);
-};
-
-export const tryAgainCat = (cat) => {
-    catPicDiv.style.display = "flex";
-    cat.health = 100;
-    cat.hunger = 100;
-    cat.thirst = 100;
-    cat.happiness = 100;
-    bars[0].style.width = `${cat.health}%`;
-    bars[1].style.width = `${cat.hunger}%`;
-    bars[2].style.width = `${cat.thirst}%`;
-    bars[3].style.width = `${cat.happiness}%`;
-    const catIntervalId = setInterval(() => {
-        cat.health -= 5;
-        bars[0].style.width = `${cat.health}%`;
-        cat.hunger -= 5;
-        bars[1].style.width = `${cat.hunger}%`;
-        cat.thirst -= 5;
-        bars[2].style.width = `${cat.thirst}%`;
-        cat.happiness -= 5;
-        bars[3].style.width = `${cat.happiness}%`;
-        setTimeout(() => {
-            for (let bar of bars) {
-                if (bar.style.width === "0%") {
-                    clearInterval(catIntervalId);
-                    backButton.style.display = "block";
-                    catPicDiv.style.display = "none";
-                    drinkButton.style.display = "none";
-                    eatButton.style.display = "none";
-                    customButton1.style.display = "none";
-                    customButton2.style.display = "none";
-                    tryAgain.style.display = "flex";
-                    deadPicDiv.style.display = "flex";
-                    console.log("You lose");
-                }
-            }
-        }, 500);
-    }, 500);
-};
-
-export const tryAgainHamster = (hamster) => {
-    hamsterPicDiv.style.display = "flex";
-    hamster.health = 100;
-    hamster.hunger = 100;
-    hamster.thirst = 100;
-    hamster.happiness = 100;
-    bars[0].style.width = `${hamster.health}%`;
-    bars[1].style.width = `${hamster.hunger}%`;
-    bars[2].style.width = `${hamster.thirst}%`;
-    bars[3].style.width = `${hamster.happiness}%`;
-    const catIntervalId = setInterval(() => {
-        hamster.health -= 5;
-        bars[0].style.width = `${hamster.health}%`;
-        hamster.hunger -= 5;
-        bars[1].style.width = `${hamster.hunger}%`;
-        hamster.thirst -= 5;
-        bars[2].style.width = `${hamster.thirst}%`;
-        hamster.happiness -= 5;
-        bars[3].style.width = `${hamster.happiness}%`;
-        setTimeout(() => {
-            for (let bar of bars) {
-                if (bar.style.width === "0%") {
-                    clearInterval(catIntervalId);
-                    backButton.style.display = "block";
-                    hamsterPicDiv.style.display = "none";
-                    drinkButton.style.display = "none";
-                    eatButton.style.display = "none";
-                    customButton1.style.display = "none";
-                    customButton2.style.display = "none";
-                    tryAgain.style.display = "flex";
-                    deadPicDiv.style.display = "flex";
-                    console.log("You lose");
-                }
-            }
-        }, 500);
     }, 500);
 };

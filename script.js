@@ -1,5 +1,5 @@
 import { Dog, Cat, Hamster } from "./class.js";
-import { playCatGame, playDogGame, playHamsterGame, tryAgainDog, tryAgainCat, tryAgainHamster } from "./functions.js";
+import { playCatGame, playDogGame, playHamsterGame} from "./functions.js";
 
 const readyBtn = document.getElementById("readyButton");
 const radioButtons = document.querySelectorAll('input[name="pet"]');
@@ -50,23 +50,24 @@ readyBtn.addEventListener("click", () => {
     } else if (selectedPet === "cat") {
         playCatGame(cat, selectedName);
     } else {
-        playHamsterGame(hamster, selectedName);
+        playHamsterGame(hamster, selectedName)
     }
 }),
     // code for tryAgain
     tryAgain.addEventListener("click", () => {
         tryAgain.style.display = "none";
+        backButton.style.display = "none";
         deadPicDiv.style.display = "none";
         drinkButton.style.display = "flex";
         eatButton.style.display = "flex";
         customButton1.style.display = "flex";
         customButton2.style.display = "flex";
         if (selectedPet === "dog") {
-            tryAgainDog(dog)
+            playDogGame(dog);
         } else if (selectedPet === "cat") {
-            tryAgainCat(cat)
+            playCatGame(cat);
         } else if (selectedPet === "hamster") {
-            tryAgainHamster(hamster)
+            playHamsterGame(hamster);
         }
     });
 
