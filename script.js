@@ -51,6 +51,7 @@ readyBtn.addEventListener("click", () => {
         customButton2.textContent = "Walk";
         eatButton.addEventListener("click", () => {
             dog.eat();
+            console.log(dog.health)
         });
         drinkButton.addEventListener("click", () => {
             dog.drink();

@@ -157,6 +157,7 @@ h2 {
 .bar {
     background: rgb(13, 150, 13);
     width: 100%;
+    max-width: 100%;
     height: 10px;
     position: relative;
     transition: width 0.5s linear;
