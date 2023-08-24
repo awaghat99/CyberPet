@@ -8,20 +8,20 @@ class Animals {
         this.health += 10;
         this.hunger += 10;
         if (this.health > 100) {
-            this.health = 100
+            this.health = 100;
         }
         if (this.hunger > 100) {
-            this.hunger = 100
+            this.hunger = 100;
         }
     }
     drink() {
         this.health += 10;
         this.thirst += 10;
         if (this.health > 100) {
-            this.health = 100
+            this.health = 100;
         }
         if (this.thirst > 100) {
-            this.thirst = 100
+            this.thirst = 100;
         }
     }
 }
@@ -36,7 +36,7 @@ export class Dog extends Animals {
         this.hunger -= 10;
         this.thirst -= 10;
         if (this.happiness > 100) {
-            this.happiness = 100
+            this.happiness = 100;
         }
     }
     walk() {
@@ -45,7 +45,7 @@ export class Dog extends Animals {
         this.hunger -= 5;
         this.thirst -= 5;
         if (this.happiness > 100) {
-            this.happiness = 100
+            this.happiness = 100;
         }
     }
 }
@@ -61,7 +61,7 @@ export class Cat extends Animals {
         this.hunger -= 10;
         this.thirst -= 10;
         if (this.content > 100) {
-            this.content = 100
+            this.content = 100;
         }
     }
     playWool() {
@@ -70,7 +70,7 @@ export class Cat extends Animals {
         this.hunger -= 20;
         this.thirst -= 20;
         if (this.content > 100) {
-            this.content = 100
+            this.content = 100;
         }
     }
 }
@@ -86,7 +86,7 @@ export class Hamster extends Animals {
         this.hunger -= 10;
         this.thirst -= 10;
         if (this.interested > 100) {
-            this.interested = 100
+            this.interested = 100;
         }
     }
     runOnWheel() {
@@ -95,7 +95,7 @@ export class Hamster extends Animals {
         this.hunger -= 20;
         this.thirst -= 20;
         if (this.interested > 100) {
-            this.interested = 100
+            this.interested = 100;
         }
     }
 }
