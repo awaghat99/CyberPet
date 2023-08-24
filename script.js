@@ -32,13 +32,11 @@ readyBtn.disabled = true;
 
 for (let radioButton of radioButtons) {
     radioButton.addEventListener("click", () => {
-        console.log("working?");
         readyBtn.disabled = false;
     });
 }
 
 readyBtn.addEventListener("click", () => {
-    console.log("clicked");
     selectedName = inputName.value;
     inputName.value = "";
     mainMenu.style.display = "none";
