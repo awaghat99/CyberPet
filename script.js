@@ -1,7 +1,4 @@
-// import { Animals } from "./class.js";
-import { Dog } from "./class.js";
-import { Cat } from "./class.js";
-import { Hamster } from "./class.js";
+import { Dog, Cat, Hamster } from "./class.js";
 const readyBtn = document.getElementById("readyButton");
 const radioButtons = document.querySelectorAll('input[name="pet"');
 const petPage = document.getElementById("pet-pages");
@@ -36,6 +33,12 @@ readyBtn.addEventListener("click", () => {
     if (selectedPet === "dog") {
         dogPicDiv.style.display = "flex";
         const dog = new Dog();
+        eatButton.addEventListener("click", () => {
+            dog.eat();
+        });
+        drinkButton.addEventListener("click", () => {
+            dog.drink();
+        })
         const dogIntervalId = setInterval(() => {
             dog.health -= 5;
             bars[0].style.width = `${dog.health}%`;
@@ -45,56 +48,63 @@ readyBtn.addEventListener("click", () => {
             bars[2].style.width = `${dog.thirst}%`;
             dog.happiness -= 5;
             bars[3].style.width = `${dog.happiness}%`;
-            console.log(`${bars[0].style.width}`)
             for (let bar of bars) {
                 if (bar.style.width === "0%") {
-                    console.log("You lose")
-                    clearInterval(dogIntervalId)
+                    dogPicDiv.style.display = "none";
+                    deadPicDiv.style.display = "flex";
+                    console.log("You lose");
+                    clearInterval(dogIntervalId);
                 }
             }
         }, 500);
-        else if (selectedPet === "cat") {
-            catPicDiv.style.display = "flex";
-            const cat = new Cat ()
-            const catIntervalId = setInterval(() => {
-                cat.health -= 5;
-                bars[0].style.width = `${cat.health}%`;
-                cat.hunger -= 5;
-                bars[1].style.width = `${cat.hunger}%`;
-                cat.thirst -= 5;
-                bars[2].style.width = `${cat.thirst}%`;
-                cat.content -= 5;
-                bars[3].style.width = `${cat.content}%`;
-                console.log(`${bars[0].style.width}`)
-                for (let bar of bars) {
-                    if (bar.style.width === "0%") {
-                        console.log("You lose")
-                        clearInterval(catIntervalId)
-                    }
+    }else if (selectedPet === "cat"){
+        catPicDiv.style.display = "flex";
+        const cat = new Cat();
+        const catIntervalId = setInterval(() => {
+            cat.health -= 5;
+            bars[0].style.width = `${cat.health}%`;
+            cat.hunger -= 5;
+            bars[1].style.width = `${cat.hunger}%`;
+            cat.thirst -= 5;
+            bars[2].style.width = `${cat.thirst}%`;
+            cat.content -= 5;
+            bars[3].style.width = `${cat.content}%`;
+            console.log(`${bars[0].style.width}`);
+            for (let bar of bars) {
+                if (bar.style.width === "0%") {
+                    catPicDiv.style.display = "none";
+                    deadPicDiv.style.display = "flex";
+                    console.log("You lose")
+                    clearInterval(catIntervalId)
                 }
-            }, 500);
-            if (selectedPet === "hamster") {
-                hamsterPicDiv.style.display = "flex";
-                const hamster = new Hamster ();
-                const hamsterIntervalId = setInterval(() => {
-                    hamster.health -= 5;
-                    bars[0].style.width = `${hamster.health}%`;
-                    hamster.hunger -= 5;
-                    bars[1].style.width = `${hamster.hunger}%`;
-                    hamster.thirst -= 5;
-                    bars[2].style.width = `${dog.thirst}%`;
-                    hamster.interested -= 5;
-                    bars[3].style.width = `${dog.happiness}%`;
-                    console.log(`${bars[0].style.width}`)
-                    for (let bar of bars) {
-                        if (bar.style.width === "0%") {
-                            console.log("You lose")
-                            clearInterval(hamsterIntervalId)
-                        }
-                    }
-                }, 500);
+            }
+        }, 500);
+    } else {
+        hamsterPicDiv.style.display = "flex";
+        const hamster = new Hamster ();
+        const hamsterIntervalId = setInterval(() => {
+            hamster.health -= 5;
+            bars[0].style.width = `${hamster.health}%`;
+            hamster.hunger -= 5;
+            bars[1].style.width = `${hamster.hunger}%`;
+            hamster.thirst -= 5;
+            bars[2].style.width = `${dog.thirst}%`;
+            hamster.interested -= 5;
+            bars[3].style.width = `${dog.happiness}%`;
+            console.log(`${bars[0].style.width}`)
+            for (let bar of bars) {
+                if (bar.style.width === "0%") {
+                    hamsterPicDiv.style.display = "none";
+                    deadPicDiv.style.display = "flex";
+                    console.log("You lose")
+                    clearInterval(hamsterIntervalId)
+                }
+            }
+        }, 500);
     }
-});
+}),
+
+
 
 // function code for when stat reaches 0
     // loseFunction = () => {
@@ -117,7 +127,7 @@ tryAgain.addEventListener("click", () => {
     customButton2.style.display = "flex";
     // reset bars
     // start bars
-})
+}),
 
 backButton.addEventListener('click', () => {
     mainMenu.style.display = "block";
@@ -132,17 +142,15 @@ backButton.addEventListener('click', () => {
     hamsterPicDiv.style.display = "none";
     // reset bars
     // dont start bars
-});
+})
 
-// // code for when bar levels changing 
-setInterval(() => {
-    if (bars.style.width >= "70%"){
-        bars.style.background = "rgb(13, 150, 13)";
-    } else if (bars.style.width < "70%" && bars.style.width >= "35%"){
-        bars.style.background =  "orange";
-    } else {
-        bars.style.background =  "#c54";
-    }
-}, 100);
-
-
+// // // code for when bar levels changing 
+// setInterval(() => {
+//     if (bars.style.width >= 70%){
+//         bars.style.background = "rgb(13, 150, 13)";
+//     } else if (bars.style.width < 70% && bars.style.width >= 35%){
+//         bars.style.background =  "orange";
+//     } else {
+//         bars.style.background =  "#c54";
+//     }
+// }, 100)
