@@ -22,6 +22,14 @@ const petTitle = document.getElementById("pet-title");
 let selectedPet;
 let selectedName;
 
+readyBtn.disabled = true;
+
+for (let radioButton of radioButtons && inputName.value) {
+    if (radioButton.checked && inputName.value !== "") {
+       readyBtn.disabled = false;
+    }
+}
+
 readyBtn.addEventListener("click", () => {
     console.log("clicked");
     selectedName = inputName.value;
