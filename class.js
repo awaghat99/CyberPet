@@ -67,8 +67,8 @@ export class Cat extends Animals {
     playWool() {
         this.health += 5;
         this.content += 10;
-        this.hunger -= 20;
-        this.thirst -= 20;
+        this.hunger -= 10;
+        this.thirst -= 10;
         if (this.content > 100) {
             this.content = 100;
         }
