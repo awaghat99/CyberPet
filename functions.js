@@ -11,6 +11,9 @@ const hamsterPicDiv = document.getElementById("hamsterPicDiv");
 const deadPicDiv = document.getElementById("deadPicDiv");
 const backButton = document.getElementById("backButton");
 const tryAgain = document.getElementById("tryAgain");
+const dogImage = document.getElementById("dog-image");
+const catImage = document.getElementById("cat-image");
+const hamsterImage = document.getElementById("hamster-image")
 
 const resetGenericStats = (pet) => {
     pet.health = 100;
@@ -88,10 +91,13 @@ export const playDogGame = (dog, selectedName) => {
         for (let i = 0; i < dogStats.length; i++) {
             if (dog[dogStats[i]] < 65 && dog[dogStats[i]] >= 31) {
                 bars[i].style.backgroundColor = "orange";
+                dogImage.src = "./images/mediumDog.avif"
             } else if (dog[dogStats[i]] <= 30) {
                 bars[i].style.backgroundColor = "red";
+                dogImage.src = "./images/sadDog.avif"
             } else {
                 bars[i].style.backgroundColor = "green";
+                dogImage.src = "images/dog.avif"
             }
         }
     }, 500);
@@ -161,10 +167,13 @@ export const playCatGame = (cat, selectedName) => {
         for (let i = 0; i < catStats.length; i++) {
             if (cat[catStats[i]] < 65 && cat[catStats[i]] >= 31) {
                 bars[i].style.backgroundColor = "orange";
+                catImage.src = "./images/mediumcat.jpg"
             } else if (cat[catStats[i]] <= 30) {
                 bars[i].style.backgroundColor = "red";
+                catImage.src = "./images/sadcat.png"
             } else {
                 bars[i].style.backgroundColor = "green";
+                catImage.src = "./images/cat.jfif"
             }
         }
     }, 500);
@@ -233,10 +242,13 @@ export const playHamsterGame = (hamster, selectedName) => {
         for (let i = 0; i < hamsterStats.length; i++) {
             if (hamster[hamsterStats[i]] < 65 && hamster[hamsterStats[i]] >= 31) {
                 bars[i].style.backgroundColor = "orange";
+                hamsterImage.src = "./images/mediumhamster.png"
             } else if (hamster[hamsterStats[i]] <= 30) {
                 bars[i].style.backgroundColor = "red";
+                hamsterImage.src = "./images/sadhamster.png"
             } else {
                 bars[i].style.backgroundColor = "green";
+                hamsterImage.src = "./images/hamster.jfif"
             }
         }
     }, 500);
