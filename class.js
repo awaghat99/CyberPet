@@ -34,4 +34,4 @@ class Dog extends Animals {
     }    
 }
 
-module.exports = {Animals, Dog}
+// module.exports = Animals;
