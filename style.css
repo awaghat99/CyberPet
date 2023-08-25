@@ -407,7 +407,9 @@ span {
 
 /* Instructions */
 #instructionsButton{
-    display: inline-block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
     font-size: 20px;
     border: 2px solid black;
     padding: 5px 15px;
