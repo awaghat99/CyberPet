@@ -125,7 +125,7 @@ export const playCatGame = (cat, selectedName) => {
     let catStats = ["health", "hunger", "thirst", "content"];
     petTitle.innerHTML = `Look after your cat - ${selectedName}`;
     catAnimations.style.display = "flex";
-    catHead.src = "./images/.."
+    catHead.src = "./images/catHappyHead.png"
     customButton1.textContent = "Groom";
     customSpan.textContent = "CONTENTMENT";
     customButton2.textContent = "Play with wool";
@@ -196,10 +196,10 @@ export const playCatGame = (cat, selectedName) => {
                 catHead.src = "./images/cat-head-ok.png"
             } else if (cat[catStats[i]] <= 30) {
                 bars[i].style.backgroundColor = "red";
-                catHead.src = "./images/sadcat.png"
+                catHead.src = "./images/catHeadSad.png"
             } else {
                 bars[i].style.backgroundColor = "green";
-                catHead.src = "./images/cat.jfif"
+                catHead.src = "./images/catHappyHead.png"
             }
         }
     }, 500);
