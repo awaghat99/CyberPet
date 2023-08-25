@@ -15,7 +15,9 @@ const backButton = document.getElementById("backButton");
 const tryAgain = document.getElementById("tryAgain");
 const dogImage = document.getElementById("dog-image");
 const catImage = document.getElementById("cat-image");
-const hamsterImage = document.getElementById("hamster-image")
+const hamsterImage = document.getElementById("hamster-image");
+
+let eventlistenOff = true;
 
 const resetGenericStats = (pet) => {
     pet.health = 100;
@@ -38,40 +40,42 @@ export const playDogGame = (dog, selectedName) => {
     customButton1.textContent = "Fetch";
     customButton2.textContent = "Walk";
     customSpan.textContent = "HAPPINESS";
-    eatButton.addEventListener("click", () => {
-        dog.eat();
-    });
-    drinkButton.addEventListener("click", () => {
-        dog.drink();
-    });
-    customButton1.addEventListener("click", () => {
-        dog.fetch(bars);
-    });
-    customButton2.addEventListener("click", () => {
-        dog.walk(bars);
-    });
-    document.addEventListener("keyup", (event) => {
-        if (event.key === 'f') {
+
+    if (eventlistenOff) {
+        eventlistenOff = false;
+        console.log(`addanevent`);
+        eatButton.addEventListener("click", () => {
             dog.eat();
-            eatButtonAudio.load();
-            eatButtonAudio.play();
-        }
-        else if (event.key === 'g') {
+        });
+        drinkButton.addEventListener("click", () => {
             dog.drink();
-            drinkButtonAudio.load();
-            drinkButtonAudio.play();
-        }
-        else if (event.key === 'h') {
+        });
+        customButton1.addEventListener("click", () => {
             dog.fetch(bars);
-            customButton1Audio.load();
-            customButton1Audio.play();
-        } 
-        else if (event.key === 'j') {
+        });
+        customButton2.addEventListener("click", () => {
             dog.walk(bars);
-            customButton2Audio.load();
-            customButton2Audio.play();
-        }
-     });
+        });
+        document.addEventListener("keyup", (event) => {
+            if (event.key === "f") {
+                dog.eat();
+                eatButtonAudio.load();
+                eatButtonAudio.play();
+            } else if (event.key === "g") {
+                dog.drink();
+                drinkButtonAudio.load();
+                drinkButtonAudio.play();
+            } else if (event.key === "h") {
+                dog.fetch(bars);
+                customButton1Audio.load();
+                customButton1Audio.play();
+            } else if (event.key === "j") {
+                dog.walk(bars);
+                customButton2Audio.load();
+                customButton2Audio.play();
+            }
+        });
+    }
 
     const dogIntervalId = setInterval(() => {
         setTimeout(() => {
@@ -103,13 +107,13 @@ export const playDogGame = (dog, selectedName) => {
         for (let i = 0; i < dogStats.length; i++) {
             if (dog[dogStats[i]] < 65 && dog[dogStats[i]] >= 31) {
                 bars[i].style.backgroundColor = "orange";
-                dogImage.src = "./images/mediumDog.avif"
+                dogImage.src = "./images/mediumDog.avif";
             } else if (dog[dogStats[i]] <= 30) {
                 bars[i].style.backgroundColor = "red";
-                dogImage.src = "./images/sadDog.avif"
+                dogImage.src = "./images/sadDog.avif";
             } else {
                 bars[i].style.backgroundColor = "green";
-                dogImage.src = "images/dog.avif"
+                dogImage.src = "images/dog.avif";
             }
         }
     }, 500);
@@ -126,40 +130,42 @@ export const playCatGame = (cat, selectedName) => {
     customButton1.textContent = "Groom";
     customSpan.textContent = "CONTENTMENT";
     customButton2.textContent = "Play with wool";
-    eatButton.addEventListener("click", () => {
-        cat.eat();
-    });
-    drinkButton.addEventListener("click", () => {
-        cat.drink();
-    });
-    customButton1.addEventListener("click", () => {
-        cat.groom(bars);
-    });
-    customButton2.addEventListener("click", () => {
-        cat.playWool(bars);
-    });
-    document.addEventListener("keyup", (event) => {
-        if (event.key === 'f') {
+
+    if (eventlistenOff) {
+        eventlistenOff = false;
+        eatButton.addEventListener("click", () => {
             cat.eat();
-            eatButtonAudio.load();
-            eatButtonAudio.play();
-        }
-        else if (event.key === 'g') {
+        });
+        drinkButton.addEventListener("click", () => {
             cat.drink();
-            drinkButtonAudio.load();
-            drinkButtonAudio.play();
-        }
-        else if (event.key === 'h') {
+        });
+        customButton1.addEventListener("click", () => {
             cat.groom(bars);
-            customButton1Audio.load();
-            customButton1Audio.play();
-        } 
-        else if (event.key === 'j') {
+        });
+        customButton2.addEventListener("click", () => {
             cat.playWool(bars);
-            customButton2Audio.load();
-            customButton2Audio.play();
-        }
-     });
+        });
+        document.addEventListener("keyup", (event) => {
+            if (event.key === "f") {
+                cat.eat();
+                eatButtonAudio.load();
+                eatButtonAudio.play();
+            } else if (event.key === "g") {
+                cat.drink();
+                drinkButtonAudio.load();
+                drinkButtonAudio.play();
+            } else if (event.key === "h") {
+                cat.groom(bars);
+                customButton1Audio.load();
+                customButton1Audio.play();
+            } else if (event.key === "j") {
+                cat.playWool(bars);
+                customButton2Audio.load();
+                customButton2Audio.play();
+            }
+        });
+    }
+
     const catIntervalId = setInterval(() => {
         cat.health -= 5;
         bars[0].style.width = `${cat.health}%`;
@@ -188,17 +194,16 @@ export const playCatGame = (cat, selectedName) => {
         for (let i = 0; i < catStats.length; i++) {
             if (cat[catStats[i]] < 65 && cat[catStats[i]] >= 31) {
                 bars[i].style.backgroundColor = "orange";
-                catImage.src = "./images/mediumcat.jpg"
+                catImage.src = "./images/mediumcat.jpg";
             } else if (cat[catStats[i]] <= 30) {
                 bars[i].style.backgroundColor = "red";
-                catImage.src = "./images/sadcat.png"
+                catImage.src = "./images/sadcat.png";
             } else {
                 bars[i].style.backgroundColor = "green";
-                catImage.src = "./images/cat.jfif"
+                catImage.src = "./images/cat.jfif";
             }
         }
     }, 500);
-    
 };
 
 export const playHamsterGame = (hamster, selectedName) => {
@@ -206,46 +211,48 @@ export const playHamsterGame = (hamster, selectedName) => {
     hamster.interested = 100;
     bars[3].style.width = `${hamster.interested}%`;
     let hamsterStats = ["health", "hunger", "thirst", "interested"];
-    
+
     petTitle.innerHTML = `Look after your hamster - ${selectedName}`;
     hamsterPicDiv.style.display = "flex";
     customSpan.textContent = "INTEREST";
     customButton1.textContent = "Pet";
     customButton2.textContent = "Run on wheel";
-    eatButton.addEventListener("click", () => {
-        hamster.eat();
-    });
-    drinkButton.addEventListener("click", () => {
-        hamster.drink();
-    });
-    customButton1.addEventListener("click", () => {
-        hamster.pet(bars);
-    });
-    customButton2.addEventListener("click", () => {
-        hamster.runOnWheel(bars);
-    });
-    document.addEventListener("keyup", (event) => {
-        if (event.key === 'f') {
+
+    if (eventlistenOff) {
+        eventlistenOff = false;
+        eatButton.addEventListener("click", () => {
             hamster.eat();
-            eatButtonAudio.load();
-            eatButtonAudio.play();
-        }
-        else if (event.key === 'g') {
+        });
+        drinkButton.addEventListener("click", () => {
             hamster.drink();
-            drinkButtonAudio.load();
-            drinkButtonAudio.play();
-        }
-        else if (event.key === 'h') {
+        });
+        customButton1.addEventListener("click", () => {
             hamster.pet(bars);
-            customButton1Audio.load();
-            customButton1Audio.play();
-        } 
-        else if (event.key === 'j') {
+        });
+        customButton2.addEventListener("click", () => {
             hamster.runOnWheel(bars);
-            customButton2Audio.load();
-            customButton2Audio.play();
-        }
-     });
+        });
+        document.addEventListener("keyup", (event) => {
+            if (event.key === "f") {
+                hamster.eat();
+                eatButtonAudio.load();
+                eatButtonAudio.play();
+            } else if (event.key === "g") {
+                hamster.drink();
+                drinkButtonAudio.load();
+                drinkButtonAudio.play();
+            } else if (event.key === "h") {
+                hamster.pet(bars);
+                customButton1Audio.load();
+                customButton1Audio.play();
+            } else if (event.key === "j") {
+                hamster.runOnWheel(bars);
+                customButton2Audio.load();
+                customButton2Audio.play();
+            }
+        });
+    }
+
     const hamsterIntervalId = setInterval(() => {
         hamster.health -= 5;
         bars[0].style.width = `${hamster.health}%`;
@@ -275,13 +282,13 @@ export const playHamsterGame = (hamster, selectedName) => {
         for (let i = 0; i < hamsterStats.length; i++) {
             if (hamster[hamsterStats[i]] < 65 && hamster[hamsterStats[i]] >= 31) {
                 bars[i].style.backgroundColor = "orange";
-                hamsterImage.src = "./images/mediumhamster.png"
+                hamsterImage.src = "./images/mediumhamster.png";
             } else if (hamster[hamsterStats[i]] <= 30) {
                 bars[i].style.backgroundColor = "red";
-                hamsterImage.src = "./images/sadhamster.png"
+                hamsterImage.src = "./images/sadhamster.png";
             } else {
                 bars[i].style.backgroundColor = "green";
-                hamsterImage.src = "./images/hamster.jfif"
+                hamsterImage.src = "./images/hamster.jfif";
             }
         }
     }, 500);
