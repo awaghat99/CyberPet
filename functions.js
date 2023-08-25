@@ -7,20 +7,15 @@ const customButton2 = document.getElementById("customButton2");
 const bars = document.getElementsByClassName("bar");
 const petTitle = document.getElementById("pet-title");
 const customSpan = document.getElementById("custom-span");
-const catPicDiv = document.getElementById("catPicDiv");
-const hamsterPicDiv = document.getElementById("hamsterPicDiv");
 const deadPicDiv = document.getElementById("deadPicDiv");
 const backButton = document.getElementById("backButton");
 const tryAgain = document.getElementById("tryAgain");
-const catImage = document.getElementById("cat-image");
-const hamsterImage = document.getElementById("hamster-image");
-
 const dogAnimations = document.getElementById("dogAnimations");
 const dogHead = document.getElementById("dogHead");
-
-let hasEventListenDog = false;
-let hasEventListenCat = false;
-let hasEventListenHamster = false;
+const catAnimations = document.getElementById("catAnimations");
+const catHead = document.getElementById("catHead");
+const hamsterAnimations = document.getElementById("hamsterAnimations");
+const hamsterHead = document.getElementById("hamsterHead");
 
 const resetGenericStats = (pet) => {
     pet.health = 100;
@@ -100,9 +95,9 @@ export const playDogGame = (dog, selectedName) => {
         setTimeout(() => {
             dog.health -= 5;
             bars[0].style.width = `${dog.health}%`;
-            dog.hunger -= 5;
+            dog.hunger -= 6;
             bars[1].style.width = `${dog.hunger}%`;
-            dog.thirst -= 5;
+            dog.thirst -= 8;
             bars[2].style.width = `${dog.thirst}%`;
             dog.happiness -= 5;
             bars[3].style.width = `${dog.happiness}%`;
@@ -144,9 +139,9 @@ export const playCatGame = (cat, selectedName) => {
     cat.content = 100;
     bars[3].style.width = `${cat.content}%`;
     let catStats = ["health", "hunger", "thirst", "content"];
-
     petTitle.innerHTML = `Look after your cat - ${selectedName}`;
-    catPicDiv.style.display = "flex";
+    catAnimations.style.display = "flex";
+    catHead.src = "./images/.."
     customButton1.textContent = "Groom";
     customSpan.textContent = "CONTENTMENT";
     customButton2.textContent = "Play with wool";
@@ -205,15 +200,15 @@ export const playCatGame = (cat, selectedName) => {
     const catIntervalId = setInterval(() => {
         cat.health -= 5;
         bars[0].style.width = `${cat.health}%`;
-        cat.hunger -= 5;
+        cat.hunger -= 8;
         bars[1].style.width = `${cat.hunger}%`;
         cat.thirst -= 5;
         bars[2].style.width = `${cat.thirst}%`;
-        cat.content -= 5;
+        cat.content -= 6;
         bars[3].style.width = `${cat.content}%`;
         for (let bar of bars) {
             if (bar.style.width === "0%") {
-                catPicDiv.style.display = "none";
+                catAnimations.style.display = "none";
                 backButton.style.display = "block";
                 tryAgain.style.display = "flex";
                 drinkButton.style.display = "none";
@@ -231,13 +226,13 @@ export const playCatGame = (cat, selectedName) => {
         for (let i = 0; i < catStats.length; i++) {
             if (cat[catStats[i]] < 65 && cat[catStats[i]] >= 31) {
                 bars[i].style.backgroundColor = "orange";
-                catImage.src = "./images/mediumcat.jpg";
+                catHead.src = "./images/cat-head-ok.png"
             } else if (cat[catStats[i]] <= 30) {
                 bars[i].style.backgroundColor = "red";
-                catImage.src = "./images/sadcat.png";
+                catHead.src = "./images/sadcat.png"
             } else {
                 bars[i].style.backgroundColor = "green";
-                catImage.src = "./images/cat.jfif";
+                catHead.src = "./images/cat.jfif"
             }
         }
     }, 500);
@@ -249,9 +244,9 @@ export const playHamsterGame = (hamster, selectedName) => {
     bars[3].style.width = `${hamster.interested}%`;
 
     let hamsterStats = ["health", "hunger", "thirst", "interested"];
-
     petTitle.innerHTML = `Look after your hamster - ${selectedName}`;
-    hamsterPicDiv.style.display = "flex";
+    hamsterAnimations.style.display = "flex";
+    hamsterHead.src = "./images/"
     customSpan.textContent = "INTEREST";
     customButton1.textContent = "Pet";
     customButton2.textContent = "Run on wheel";
@@ -312,14 +307,14 @@ export const playHamsterGame = (hamster, selectedName) => {
         bars[0].style.width = `${hamster.health}%`;
         hamster.hunger -= 5;
         bars[1].style.width = `${hamster.hunger}%`;
-        hamster.thirst -= 5;
+        hamster.thirst -= 6;
         bars[2].style.width = `${hamster.thirst}%`;
-        hamster.interested -= 5;
+        hamster.interested -= 8;
         bars[3].style.width = `${hamster.interested}%`;
         for (let bar of bars) {
             if (bar.style.width === "0%") {
                 backButton.style.display = "block";
-                hamsterPicDiv.style.display = "none";
+                hamsterAnimations.style.display = "none";
                 deadPicDiv.style.display = "flex";
                 drinkButton.style.display = "none";
                 eatButton.style.display = "none";
@@ -336,13 +331,13 @@ export const playHamsterGame = (hamster, selectedName) => {
         for (let i = 0; i < hamsterStats.length; i++) {
             if (hamster[hamsterStats[i]] < 65 && hamster[hamsterStats[i]] >= 31) {
                 bars[i].style.backgroundColor = "orange";
-                hamsterImage.src = "./images/mediumhamster.png";
+                hamsterHead.src = "./images/mediumhamster.png"
             } else if (hamster[hamsterStats[i]] <= 30) {
                 bars[i].style.backgroundColor = "red";
-                hamsterImage.src = "./images/sadhamster.png";
+                hamsterHead.src = "./images/sadhamster.png"
             } else {
                 bars[i].style.backgroundColor = "green";
-                hamsterImage.src = "./images/hamster.jfif";
+                hamsterHead.src = "./images/hamster.jfif"
             }
         }
     }, 500);

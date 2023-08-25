@@ -12,12 +12,15 @@ const eatButton = document.getElementById("eatButton");
 const drinkButton = document.getElementById("drinkButton");
 const customButton1 = document.getElementById("customButton1");
 const customButton2 = document.getElementById("customButton2");
-const dogPicDiv = document.getElementById("dogPicDiv");
-const catPicDiv = document.getElementById("catPicDiv");
-const hamsterPicDiv = document.getElementById("hamsterPicDiv");
+const dogAnimations = document.getElementById("dogAnimations");
+const catAnimations = document.getElementById("catAnimations");
+const hamsterAnimations = document.getElementById("hamsterAnimations");
 const deadPicDiv = document.getElementById("deadPicDiv");
 const startAudio = document.getElementById("startSound");
 const bars = document.getElementsByClassName("bar");
+const instructionsButton = document.getElementById("instructionsButton");
+const instructionsPage = document.getElementById("instructionsPage");
+const returnButton =document.getElementById("returnButton");
 export const eatButtonAudio = document.getElementById("eatButtonAudio");
 export const drinkButtonAudio = document.getElementById("drinkButtonAudio");
 export const customButton1Audio = document.getElementById("customButton1Audio");
@@ -30,6 +33,8 @@ const cat = new Cat();
 const hamster = new Hamster();
 
 readyBtn.disabled = true;
+
+instructionsPage.style.display = "none";
 
 for (let radioButton of radioButtons) {
     radioButton.addEventListener("click", () => {
@@ -92,9 +97,9 @@ backButton.addEventListener("click", () => {
     eatButton.style.display = "flex";
     customButton1.style.display = "flex";
     customButton2.style.display = "flex";
-    dogPicDiv.style.display = "none";
-    catPicDiv.style.display = "none";
-    hamsterPicDiv.style.display = "none";
+    dogAnimations.style.display = "none";
+    catAnimations.style.display = "none";
+    hamsterAnimations.style.display = "none";
     readyBtn.disabled = true;
     for (let bar of bars) {
         bar.style.background = "green";
@@ -120,4 +125,16 @@ customButton1.addEventListener("click", () => {
 customButton2.addEventListener("click", () => {
     customButton2Audio.load();
     customButton2Audio.play();
+});
+
+// instructions Page
+
+instructionsButton.addEventListener("click", () => {
+    mainMenu.style.display = "none";
+    instructionsPage.style.display = "flex";
+});
+
+returnButton.addEventListener("click", () => {
+    mainMenu.style.display = "block";
+    instructionsPage.style.display = "none";
 });
