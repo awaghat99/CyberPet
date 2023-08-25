@@ -15,9 +15,12 @@ const tryAgain = document.getElementById("tryAgain");
 const catImage = document.getElementById("cat-image");
 const hamsterImage = document.getElementById("hamster-image");
 
-let eventlistenOff = true;
 const dogAnimations = document.getElementById("dogAnimations");
 const dogHead = document.getElementById("dogHead");
+
+let hasEventListenDog = false;
+let hasEventListenCat = false;
+let hasEventListenHamster = false;
 
 const resetGenericStats = (pet) => {
     pet.health = 100;
@@ -42,20 +45,35 @@ export const playDogGame = (dog, selectedName) => {
     customButton2.textContent = "Walk";
     customSpan.textContent = "HAPPINESS";
 
-    if (eventlistenOff) {
-        eventlistenOff = false;
-        console.log(`addanevent`);
+    if (!hasEventListenDog) {
+        hasEventListenDog = true;
         eatButton.addEventListener("click", () => {
             dog.eat();
+            bars[0].style.width = `${dog.health}%`;
+            bars[1].style.width = `${dog.hunger}%`;
+            bars[2].style.width = `${dog.thirst}%`;
+            bars[3].style.width = `${dog.happiness}%`;
         });
         drinkButton.addEventListener("click", () => {
             dog.drink();
+            bars[0].style.width = `${dog.health}%`;
+            bars[1].style.width = `${dog.hunger}%`;
+            bars[2].style.width = `${dog.thirst}%`;
+            bars[3].style.width = `${dog.happiness}%`;
         });
         customButton1.addEventListener("click", () => {
             dog.fetch(bars);
+            bars[0].style.width = `${dog.health}%`;
+            bars[1].style.width = `${dog.hunger}%`;
+            bars[2].style.width = `${dog.thirst}%`;
+            bars[3].style.width = `${dog.happiness}%`;
         });
         customButton2.addEventListener("click", () => {
             dog.walk(bars);
+            bars[0].style.width = `${dog.health}%`;
+            bars[1].style.width = `${dog.hunger}%`;
+            bars[2].style.width = `${dog.thirst}%`;
+            bars[3].style.width = `${dog.happiness}%`;
         });
         document.addEventListener("keyup", (event) => {
             if (event.key === "f") {
@@ -103,7 +121,7 @@ export const playDogGame = (dog, selectedName) => {
                 console.log("You lose");
                 loseAudio.load();
                 loseAudio.play();
-                return
+                return;
             }
         }
         for (let i = 0; i < dogStats.length; i++) {
@@ -133,19 +151,35 @@ export const playCatGame = (cat, selectedName) => {
     customSpan.textContent = "CONTENTMENT";
     customButton2.textContent = "Play with wool";
 
-    if (eventlistenOff) {
-        eventlistenOff = false;
+    if (!hasEventListenCat) {
+        hasEventListenCat = true;
         eatButton.addEventListener("click", () => {
             cat.eat();
+            bars[0].style.width = `${cat.health}%`;
+            bars[1].style.width = `${cat.hunger}%`;
+            bars[2].style.width = `${cat.thirst}%`;
+            bars[3].style.width = `${cat.content}%`;
         });
         drinkButton.addEventListener("click", () => {
             cat.drink();
+            bars[0].style.width = `${cat.health}%`;
+            bars[1].style.width = `${cat.hunger}%`;
+            bars[2].style.width = `${cat.thirst}%`;
+            bars[3].style.width = `${cat.content}%`;
         });
         customButton1.addEventListener("click", () => {
             cat.groom(bars);
+            bars[0].style.width = `${cat.health}%`;
+            bars[1].style.width = `${cat.hunger}%`;
+            bars[2].style.width = `${cat.thirst}%`;
+            bars[3].style.width = `${cat.content}%`;
         });
         customButton2.addEventListener("click", () => {
             cat.playWool(bars);
+            bars[0].style.width = `${cat.health}%`;
+            bars[1].style.width = `${cat.hunger}%`;
+            bars[2].style.width = `${cat.thirst}%`;
+            bars[3].style.width = `${cat.content}%`;
         });
         document.addEventListener("keyup", (event) => {
             if (event.key === "f") {
@@ -177,7 +211,6 @@ export const playCatGame = (cat, selectedName) => {
         bars[2].style.width = `${cat.thirst}%`;
         cat.content -= 5;
         bars[3].style.width = `${cat.content}%`;
-        console.log(`${bars[0].style.width}`);
         for (let bar of bars) {
             if (bar.style.width === "0%") {
                 catPicDiv.style.display = "none";
@@ -192,7 +225,7 @@ export const playCatGame = (cat, selectedName) => {
                 clearInterval(catIntervalId);
                 loseAudio.load();
                 loseAudio.play();
-                return
+                return;
             }
         }
         for (let i = 0; i < catStats.length; i++) {
@@ -214,6 +247,7 @@ export const playHamsterGame = (hamster, selectedName) => {
     resetGenericStats(hamster);
     hamster.interested = 100;
     bars[3].style.width = `${hamster.interested}%`;
+
     let hamsterStats = ["health", "hunger", "thirst", "interested"];
 
     petTitle.innerHTML = `Look after your hamster - ${selectedName}`;
@@ -222,19 +256,35 @@ export const playHamsterGame = (hamster, selectedName) => {
     customButton1.textContent = "Pet";
     customButton2.textContent = "Run on wheel";
 
-    if (eventlistenOff) {
-        eventlistenOff = false;
+    if (!hasEventListenHamster) {
+        hasEventListenHamster = true;
         eatButton.addEventListener("click", () => {
             hamster.eat();
+            bars[0].style.width = `${hamster.health}%`;
+            bars[1].style.width = `${hamster.hunger}%`;
+            bars[2].style.width = `${hamster.thirst}%`;
+            bars[3].style.width = `${hamster.interested}%`;
         });
         drinkButton.addEventListener("click", () => {
             hamster.drink();
+            bars[0].style.width = `${hamster.health}%`;
+            bars[1].style.width = `${hamster.hunger}%`;
+            bars[2].style.width = `${hamster.thirst}%`;
+            bars[3].style.width = `${hamster.interested}%`;
         });
         customButton1.addEventListener("click", () => {
             hamster.pet(bars);
+            bars[0].style.width = `${hamster.health}%`;
+            bars[1].style.width = `${hamster.hunger}%`;
+            bars[2].style.width = `${hamster.thirst}%`;
+            bars[3].style.width = `${hamster.interested}%`;
         });
         customButton2.addEventListener("click", () => {
             hamster.runOnWheel(bars);
+            bars[0].style.width = `${hamster.health}%`;
+            bars[1].style.width = `${hamster.hunger}%`;
+            bars[2].style.width = `${hamster.thirst}%`;
+            bars[3].style.width = `${hamster.interested}%`;
         });
         document.addEventListener("keyup", (event) => {
             if (event.key === "f") {
@@ -266,7 +316,6 @@ export const playHamsterGame = (hamster, selectedName) => {
         bars[2].style.width = `${hamster.thirst}%`;
         hamster.interested -= 5;
         bars[3].style.width = `${hamster.interested}%`;
-        console.log(`${bars[0].style.width}`);
         for (let bar of bars) {
             if (bar.style.width === "0%") {
                 backButton.style.display = "block";
@@ -281,7 +330,7 @@ export const playHamsterGame = (hamster, selectedName) => {
                 clearInterval(hamsterIntervalId);
                 loseAudio.load();
                 loseAudio.play();
-                return
+                return;
             }
         }
         for (let i = 0; i < hamsterStats.length; i++) {

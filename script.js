@@ -23,7 +23,6 @@ export const drinkButtonAudio = document.getElementById("drinkButtonAudio");
 export const customButton1Audio = document.getElementById("customButton1Audio");
 export const customButton2Audio = document.getElementById("customButton2Audio");
 
-
 let selectedPet;
 let selectedName;
 const dog = new Dog();
@@ -65,8 +64,8 @@ readyBtn.addEventListener("click", () => {
     tryAgain.addEventListener("click", () => {
         startAudio.load();
         startAudio.play();
-        for (let bar of bars){
-            bar.style.background = "rgb(13, 150, 13)"
+        for (let bar of bars) {
+            bar.style.background = "rgb(13, 150, 13)";
         }
         tryAgain.style.display = "none";
         backButton.style.display = "none";
@@ -97,8 +96,8 @@ backButton.addEventListener("click", () => {
     catPicDiv.style.display = "none";
     hamsterPicDiv.style.display = "none";
     readyBtn.disabled = true;
-    for (let bar of bars){
-        bar.style.background = "rgb(13, 150, 13)"
+    for (let bar of bars) {
+        bar.style.background = "green";
     }
 });
 
