@@ -40,6 +40,7 @@ for (let radioButton of radioButtons) {
 
 readyBtn.addEventListener("click", () => {
     selectedName = inputName.value;
+    backButton.style.display = "none";
     inputName.value = "";
     mainMenu.style.display = "none";
     petPage.style.display = "flex";
