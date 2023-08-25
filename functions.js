@@ -7,7 +7,6 @@ const customButton2 = document.getElementById("customButton2");
 const bars = document.getElementsByClassName("bar");
 const petTitle = document.getElementById("pet-title");
 const customSpan = document.getElementById("custom-span");
-const dogPicDiv = document.getElementById("dogPicDiv");
 const catPicDiv = document.getElementById("catPicDiv");
 const hamsterPicDiv = document.getElementById("hamsterPicDiv");
 const deadPicDiv = document.getElementById("deadPicDiv");
@@ -16,6 +15,8 @@ const tryAgain = document.getElementById("tryAgain");
 const dogImage = document.getElementById("dog-image");
 const catImage = document.getElementById("cat-image");
 const hamsterImage = document.getElementById("hamster-image")
+const dogAnimations = document.getElementById("dogAnimations");
+const dogHead = document.getElementById("dogHead");
 
 const resetGenericStats = (pet) => {
     pet.health = 100;
@@ -34,7 +35,8 @@ export const playDogGame = (dog, selectedName) => {
     let dogStats = ["health", "hunger", "thirst", "happiness"];
 
     petTitle.innerHTML = `Look after your dog - ${selectedName}`;
-    dogPicDiv.style.display = "flex";
+    dogAnimations.style.display = "flex";
+    dogHead.src = "images/dogHeadHappy.webp";
     customButton1.textContent = "Fetch";
     customButton2.textContent = "Walk";
     customSpan.textContent = "HAPPINESS";
@@ -87,8 +89,8 @@ export const playDogGame = (dog, selectedName) => {
         for (let bar of bars) {
             if (bar.style.width === "0%") {
                 clearInterval(dogIntervalId);
+                dogAnimations.style.display = "none";
                 backButton.style.display = "block";
-                dogPicDiv.style.display = "none";
                 drinkButton.style.display = "none";
                 eatButton.style.display = "none";
                 customButton1.style.display = "none";
@@ -103,13 +105,14 @@ export const playDogGame = (dog, selectedName) => {
         for (let i = 0; i < dogStats.length; i++) {
             if (dog[dogStats[i]] < 65 && dog[dogStats[i]] >= 31) {
                 bars[i].style.backgroundColor = "orange";
-                dogImage.src = "./images/mediumDog.avif"
+                dogHead.src = "./images/dogHeadOK.png";
             } else if (dog[dogStats[i]] <= 30) {
                 bars[i].style.backgroundColor = "red";
-                dogImage.src = "./images/sadDog.avif"
+                dogHead.src = "./images/dogHeadSad.webp";
             } else {
                 bars[i].style.backgroundColor = "green";
-                dogImage.src = "images/dog.avif"
+                dogHappy.style.display = "block";
+                dogHead.src = "./images/dogHeadHappy.webp";
             }
         }
     }, 500);
