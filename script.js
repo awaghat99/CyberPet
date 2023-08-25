@@ -64,6 +64,9 @@ readyBtn.addEventListener("click", () => {
     tryAgain.addEventListener("click", () => {
         startAudio.load();
         startAudio.play();
+        for (let bar of bars){
+            bar.style.background = "rgb(13, 150, 13)"
+        }
         tryAgain.style.display = "none";
         backButton.style.display = "none";
         deadPicDiv.style.display = "none";
@@ -93,9 +96,9 @@ backButton.addEventListener("click", () => {
     catPicDiv.style.display = "none";
     hamsterPicDiv.style.display = "none";
     readyBtn.disabled = true;
-    // for (bar of bars){
-    //     bar.style.background = "rgb(13, 150, 13)"
-    // }
+    for (let bar of bars){
+        bar.style.background = "rgb(13, 150, 13)"
+    }
 });
 
 // button sound on click
