@@ -1,3 +1,5 @@
+import { eatButtonAudio, drinkButtonAudio, customButton1Audio, customButton2Audio } from "./script.js";
+
 const eatButton = document.getElementById("eatButton");
 const drinkButton = document.getElementById("drinkButton");
 const customButton1 = document.getElementById("customButton1");
@@ -51,15 +53,23 @@ export const playDogGame = (dog, selectedName) => {
     document.addEventListener("keyup", (event) => {
         if (event.key === 'f') {
             dog.eat();
+            eatButtonAudio.load();
+            eatButtonAudio.play();
         }
         else if (event.key === 'g') {
             dog.drink();
+            drinkButtonAudio.load();
+            drinkButtonAudio.play();
         }
         else if (event.key === 'h') {
             dog.fetch();
+            customButton1Audio.load();
+            customButton1Audio.play();
         } 
         else if (event.key === 'j') {
             dog.walk();
+            customButton2Audio.load();
+            customButton2Audio.play();
         }
      });
 
@@ -131,15 +141,23 @@ export const playCatGame = (cat, selectedName) => {
     document.addEventListener("keyup", (event) => {
         if (event.key === 'f') {
             cat.eat();
+            eatButtonAudio.load();
+            eatButtonAudio.play();
         }
         else if (event.key === 'g') {
             cat.drink();
+            drinkButtonAudio.load();
+            drinkButtonAudio.play();
         }
         else if (event.key === 'h') {
             cat.groom();
+            customButton1Audio.load();
+            customButton1Audio.play();
         } 
         else if (event.key === 'j') {
             dog.playWool();
+            customButton2Audio.load();
+            customButton2Audio.play();
         }
      });
     const catIntervalId = setInterval(() => {
@@ -209,15 +227,23 @@ export const playHamsterGame = (hamster, selectedName) => {
     document.addEventListener("keyup", (event) => {
         if (event.key === 'f') {
             hamster.eat();
+            eatButtonAudio.load();
+            eatButtonAudio.play();
         }
         else if (event.key === 'g') {
             hamster.drink();
+            drinkButtonAudio.load();
+            drinkButtonAudio.play();
         }
         else if (event.key === 'h') {
             hamster.pet();
+            customButton1Audio.load();
+            customButton1Audio.play();
         } 
         else if (event.key === 'j') {
             hamster.runOnWheel();
+            customButton2Audio.load();
+            customButton2Audio.play();
         }
      });
     const hamsterIntervalId = setInterval(() => {
