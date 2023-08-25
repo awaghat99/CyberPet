@@ -59,6 +59,7 @@ export class Dog extends Animals {
         if (this.thirst <= 0) {
             bars[2].style.width = "0%";
         }
+        console.log("walk");
     }
 }
 

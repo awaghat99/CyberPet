@@ -17,6 +17,7 @@ const catPicDiv = document.getElementById("catPicDiv");
 const hamsterPicDiv = document.getElementById("hamsterPicDiv");
 const deadPicDiv = document.getElementById("deadPicDiv");
 const startAudio = document.getElementById("startSound");
+const bars = document.getElementsByClassName("bar");
 const instructionsButton = document.getElementById("instructionsButton");
 const instructionsPage = document.getElementById("instructionsPage");
 const returnButton =document.getElementById("returnButton");
@@ -44,6 +45,7 @@ for (let radioButton of radioButtons) {
 
 readyBtn.addEventListener("click", () => {
     selectedName = inputName.value;
+    backButton.style.display = "none";
     inputName.value = "";
     mainMenu.style.display = "none";
     petPage.style.display = "flex";
@@ -68,6 +70,9 @@ readyBtn.addEventListener("click", () => {
     tryAgain.addEventListener("click", () => {
         startAudio.load();
         startAudio.play();
+        for (let bar of bars){
+            bar.style.background = "rgb(13, 150, 13)"
+        }
         tryAgain.style.display = "none";
         backButton.style.display = "none";
         deadPicDiv.style.display = "none";
@@ -85,10 +90,6 @@ readyBtn.addEventListener("click", () => {
     });
 
 backButton.addEventListener("click", () => {
-    dog.health = 100;
-    dog.hunger = 100;
-    dog.thirst = 100;
-    dog.happiness = 100;
     mainMenu.style.display = "block";
     deadPicDiv.style.display = "none";
     petPage.style.display = "none";
@@ -101,6 +102,9 @@ backButton.addEventListener("click", () => {
     catPicDiv.style.display = "none";
     hamsterPicDiv.style.display = "none";
     readyBtn.disabled = true;
+    for (let bar of bars){
+        bar.style.background = "rgb(13, 150, 13)"
+    }
 });
 
 // button sound on click
