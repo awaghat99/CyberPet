@@ -17,6 +17,9 @@ const catPicDiv = document.getElementById("catPicDiv");
 const hamsterPicDiv = document.getElementById("hamsterPicDiv");
 const deadPicDiv = document.getElementById("deadPicDiv");
 const startAudio = document.getElementById("startSound");
+const instructionsButton = document.getElementById("instructionsButton");
+const instructionsPage = document.getElementById("instructionsPage");
+const returnButton =document.getElementById("returnButton");
 export const eatButtonAudio = document.getElementById("eatButtonAudio");
 export const drinkButtonAudio = document.getElementById("drinkButtonAudio");
 export const customButton1Audio = document.getElementById("customButton1Audio");
@@ -30,6 +33,8 @@ const cat = new Cat();
 const hamster = new Hamster();
 
 readyBtn.disabled = true;
+
+instructionsPage.style.display = "none";
 
 for (let radioButton of radioButtons) {
     radioButton.addEventListener("click", () => {
@@ -117,4 +122,16 @@ customButton1.addEventListener("click", () => {
 customButton2.addEventListener("click", () => {
     customButton2Audio.load();
     customButton2Audio.play();
+});
+
+// instructions Page
+
+instructionsButton.addEventListener("click", () => {
+    mainMenu.style.display = "none";
+    instructionsPage.style.display = "flex";
+});
+
+returnButton.addEventListener("click", () => {
+    mainMenu.style.display = "block";
+    instructionsPage.style.display = "none";
 });

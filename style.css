@@ -263,3 +263,56 @@ span{
 #tryAgain{
     display: none;
 }
+
+#instructionsButton{
+    display: inline-block;
+    font-size: 20px;
+    border: 2px solid black;
+    padding: 5px 15px;
+    background-color: #ffbfbf;
+    margin: 5%;
+    transition: 0.5s;
+}
+
+#instructionsButton:hover {
+    background-color: #ffe5e5;
+    cursor: pointer;
+}
+
+#rectangle{
+    background-color: #ffe5e5;
+    border: 3px solid black;
+    border-radius: 5%;
+    box-shadow: 3px 6px 6px;
+    padding-right: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+}
+
+#returnButton{
+    background-color: #ffbfbf;
+    border: 3px solid black;
+    border-radius: 5%;
+    box-shadow: 3px 6px 6px;
+    font-weight: bold;
+    padding: 10px 100px 10px 100px;
+    margin: auto;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#returnButton:hover {
+    background-color: #ffe5e5;
+    cursor: pointer;
+}
