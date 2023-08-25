@@ -77,9 +77,9 @@ export const playDogGame = (dog, selectedName) => {
         setTimeout(() => {
             dog.health -= 5;
             bars[0].style.width = `${dog.health}%`;
-            dog.hunger -= 5;
+            dog.hunger -= 6;
             bars[1].style.width = `${dog.hunger}%`;
-            dog.thirst -= 5;
+            dog.thirst -= 8;
             bars[2].style.width = `${dog.thirst}%`;
             dog.happiness -= 5;
             bars[3].style.width = `${dog.happiness}%`;
@@ -163,11 +163,11 @@ export const playCatGame = (cat, selectedName) => {
     const catIntervalId = setInterval(() => {
         cat.health -= 5;
         bars[0].style.width = `${cat.health}%`;
-        cat.hunger -= 5;
+        cat.hunger -= 8;
         bars[1].style.width = `${cat.hunger}%`;
         cat.thirst -= 5;
         bars[2].style.width = `${cat.thirst}%`;
-        cat.content -= 5;
+        cat.content -= 6;
         bars[3].style.width = `${cat.content}%`;
         console.log(`${bars[0].style.width}`);
         for (let bar of bars) {
@@ -251,9 +251,9 @@ export const playHamsterGame = (hamster, selectedName) => {
         bars[0].style.width = `${hamster.health}%`;
         hamster.hunger -= 5;
         bars[1].style.width = `${hamster.hunger}%`;
-        hamster.thirst -= 5;
+        hamster.thirst -= 6;
         bars[2].style.width = `${hamster.thirst}%`;
-        hamster.interested -= 5;
+        hamster.interested -= 8;
         bars[3].style.width = `${hamster.interested}%`;
         console.log(`${bars[0].style.width}`);
         for (let bar of bars) {
