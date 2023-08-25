@@ -1,5 +1,5 @@
 import { Dog, Cat, Hamster } from "./class.js";
-import { playCatGame, playDogGame, playHamsterGame} from "./functions.js";
+import { playCatGame, playDogGame, playHamsterGame } from "./functions.js";
 
 const readyBtn = document.getElementById("readyButton");
 const radioButtons = document.querySelectorAll('input[name="pet"]');
@@ -56,7 +56,7 @@ readyBtn.addEventListener("click", () => {
     } else if (selectedPet === "cat") {
         playCatGame(cat, selectedName);
     } else {
-        playHamsterGame(hamster, selectedName)
+        playHamsterGame(hamster, selectedName);
     }
 }),
     // code for tryAgain
@@ -71,11 +71,11 @@ readyBtn.addEventListener("click", () => {
         customButton1.style.display = "flex";
         customButton2.style.display = "flex";
         if (selectedPet === "dog") {
-            playDogGame(dog);
+            playDogGame(dog, selectedName);
         } else if (selectedPet === "cat") {
-            playCatGame(cat);
+            playCatGame(cat, selectedName);
         } else if (selectedPet === "hamster") {
-            playHamsterGame(hamster);
+            playHamsterGame(hamster, selectedName);
         }
     });
 
@@ -100,21 +100,21 @@ backButton.addEventListener("click", () => {
 
 // button sound on click
 eatButton.addEventListener("click", () => {
-   eatButtonAudio.load();
-   eatButtonAudio.play();
-})
+    eatButtonAudio.load();
+    eatButtonAudio.play();
+});
 
 drinkButton.addEventListener("click", () => {
     drinkButtonAudio.load();
     drinkButtonAudio.play();
- })
+});
 
- customButton1.addEventListener("click", () => {
+customButton1.addEventListener("click", () => {
     customButton1Audio.load();
     customButton1Audio.play();
- })
+});
 
- customButton2.addEventListener("click", () => {
+customButton2.addEventListener("click", () => {
     customButton2Audio.load();
     customButton2Audio.play();
- })
+});
