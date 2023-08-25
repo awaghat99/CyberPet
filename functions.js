@@ -12,7 +12,6 @@ const hamsterPicDiv = document.getElementById("hamsterPicDiv");
 const deadPicDiv = document.getElementById("deadPicDiv");
 const backButton = document.getElementById("backButton");
 const tryAgain = document.getElementById("tryAgain");
-const dogImage = document.getElementById("dog-image");
 const catImage = document.getElementById("cat-image");
 const hamsterImage = document.getElementById("hamster-image")
 const dogAnimations = document.getElementById("dogAnimations");
@@ -51,6 +50,7 @@ export const playDogGame = (dog, selectedName) => {
     });
     customButton2.addEventListener("click", () => {
         dog.walk(bars);
+        console.log("hello");
     });
     document.addEventListener("keyup", (event) => {
         if (event.key === 'f') {
@@ -100,6 +100,7 @@ export const playDogGame = (dog, selectedName) => {
                 console.log("You lose");
                 loseAudio.load();
                 loseAudio.play();
+                return
             }
         }
         for (let i = 0; i < dogStats.length; i++) {
@@ -111,7 +112,6 @@ export const playDogGame = (dog, selectedName) => {
                 dogHead.src = "./images/dogHeadSad.webp";
             } else {
                 bars[i].style.backgroundColor = "green";
-                dogHappy.style.display = "block";
                 dogHead.src = "./images/dogHeadHappy.webp";
             }
         }
@@ -176,6 +176,7 @@ export const playCatGame = (cat, selectedName) => {
         for (let bar of bars) {
             if (bar.style.width === "0%") {
                 catPicDiv.style.display = "none";
+                backButton.style.display = "block";
                 tryAgain.style.display = "flex";
                 drinkButton.style.display = "none";
                 eatButton.style.display = "none";
@@ -186,6 +187,7 @@ export const playCatGame = (cat, selectedName) => {
                 clearInterval(catIntervalId);
                 loseAudio.load();
                 loseAudio.play();
+                return
             }
         }
         for (let i = 0; i < catStats.length; i++) {
@@ -261,7 +263,7 @@ export const playHamsterGame = (hamster, selectedName) => {
         console.log(`${bars[0].style.width}`);
         for (let bar of bars) {
             if (bar.style.width === "0%") {
-                backButton.style.display = "flex";
+                backButton.style.display = "block";
                 hamsterPicDiv.style.display = "none";
                 deadPicDiv.style.display = "flex";
                 drinkButton.style.display = "none";
@@ -273,6 +275,7 @@ export const playHamsterGame = (hamster, selectedName) => {
                 clearInterval(hamsterIntervalId);
                 loseAudio.load();
                 loseAudio.play();
+                return
             }
         }
         for (let i = 0; i < hamsterStats.length; i++) {
