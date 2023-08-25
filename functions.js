@@ -17,6 +17,10 @@ const catHead = document.getElementById("catHead");
 const hamsterAnimations = document.getElementById("hamsterAnimations");
 const hamsterHead = document.getElementById("hamsterHead");
 
+let hasEventListenDog = false;
+let hasEventListenCat = false;
+let hasEventListenHamster = false;
+
 const resetGenericStats = (pet) => {
     pet.health = 100;
     pet.hunger = 100;
@@ -95,9 +99,9 @@ export const playDogGame = (dog, selectedName) => {
         setTimeout(() => {
             dog.health -= 5;
             bars[0].style.width = `${dog.health}%`;
-            dog.hunger -= 6;
+            dog.hunger -= 5;
             bars[1].style.width = `${dog.hunger}%`;
-            dog.thirst -= 8;
+            dog.thirst -= 5;
             bars[2].style.width = `${dog.thirst}%`;
             dog.happiness -= 5;
             bars[3].style.width = `${dog.happiness}%`;
@@ -141,7 +145,7 @@ export const playCatGame = (cat, selectedName) => {
     let catStats = ["health", "hunger", "thirst", "content"];
     petTitle.innerHTML = `Look after your cat - ${selectedName}`;
     catAnimations.style.display = "flex";
-    catHead.src = "./images/.."
+    catHead.src = "./images/..";
     customButton1.textContent = "Groom";
     customSpan.textContent = "CONTENTMENT";
     customButton2.textContent = "Play with wool";
@@ -200,11 +204,11 @@ export const playCatGame = (cat, selectedName) => {
     const catIntervalId = setInterval(() => {
         cat.health -= 5;
         bars[0].style.width = `${cat.health}%`;
-        cat.hunger -= 8;
+        cat.hunger -= 5;
         bars[1].style.width = `${cat.hunger}%`;
         cat.thirst -= 5;
         bars[2].style.width = `${cat.thirst}%`;
-        cat.content -= 6;
+        cat.content -= 5;
         bars[3].style.width = `${cat.content}%`;
         for (let bar of bars) {
             if (bar.style.width === "0%") {
@@ -226,13 +230,13 @@ export const playCatGame = (cat, selectedName) => {
         for (let i = 0; i < catStats.length; i++) {
             if (cat[catStats[i]] < 65 && cat[catStats[i]] >= 31) {
                 bars[i].style.backgroundColor = "orange";
-                catHead.src = "./images/cat-head-ok.png"
+                catHead.src = "./images/cat-head-ok.png";
             } else if (cat[catStats[i]] <= 30) {
                 bars[i].style.backgroundColor = "red";
-                catHead.src = "./images/sadcat.png"
+                catHead.src = "./images/sadcat.png";
             } else {
                 bars[i].style.backgroundColor = "green";
-                catHead.src = "./images/cat.jfif"
+                catHead.src = "./images/cat.jfif";
             }
         }
     }, 500);
@@ -246,7 +250,7 @@ export const playHamsterGame = (hamster, selectedName) => {
     let hamsterStats = ["health", "hunger", "thirst", "interested"];
     petTitle.innerHTML = `Look after your hamster - ${selectedName}`;
     hamsterAnimations.style.display = "flex";
-    hamsterHead.src = "./images/"
+    hamsterHead.src = "./images/";
     customSpan.textContent = "INTEREST";
     customButton1.textContent = "Pet";
     customButton2.textContent = "Run on wheel";
@@ -307,9 +311,9 @@ export const playHamsterGame = (hamster, selectedName) => {
         bars[0].style.width = `${hamster.health}%`;
         hamster.hunger -= 5;
         bars[1].style.width = `${hamster.hunger}%`;
-        hamster.thirst -= 6;
+        hamster.thirst -= 5;
         bars[2].style.width = `${hamster.thirst}%`;
-        hamster.interested -= 8;
+        hamster.interested -= 5;
         bars[3].style.width = `${hamster.interested}%`;
         for (let bar of bars) {
             if (bar.style.width === "0%") {
@@ -331,13 +335,13 @@ export const playHamsterGame = (hamster, selectedName) => {
         for (let i = 0; i < hamsterStats.length; i++) {
             if (hamster[hamsterStats[i]] < 65 && hamster[hamsterStats[i]] >= 31) {
                 bars[i].style.backgroundColor = "orange";
-                hamsterHead.src = "./images/mediumhamster.png"
+                hamsterHead.src = "./images/mediumhamster.png";
             } else if (hamster[hamsterStats[i]] <= 30) {
                 bars[i].style.backgroundColor = "red";
-                hamsterHead.src = "./images/sadhamster.png"
+                hamsterHead.src = "./images/sadhamster.png";
             } else {
                 bars[i].style.backgroundColor = "green";
-                hamsterHead.src = "./images/hamster.jfif"
+                hamsterHead.src = "./images/hamster.jfif";
             }
         }
     }, 500);
