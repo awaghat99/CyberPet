@@ -239,6 +239,45 @@ span {
 
 #tryAgain {
     display: none;
+    justify-content: center;
+}
+
+#dogAnimations{
+    display: none;
+    width: 1px;
+    height: 1px;
+    position: relative;
+    left:30%;
+    top:-200px;
+}
+
+#container {
+    margin-top: 150px;
+    margin-left: 300px;
+}
+
+#dog-head{
+  z-index: 100;
+  animation: head-move 1s ease-in-out infinite;
+  position: relative;
+  top: 45px;
+  left: -10px;
+}
+
+.dog-body {
+  height: 300px;
+  width: 225px;
+}
+
+
+
+/*ANIMATIONS
+---------------------------------------------------------*/
+
+@keyframes head-move {
+  50% { 
+    -webkit-transform: rotate(-1.5deg); 
+  }
 }
 
 @media (max-width: 1400px) {
