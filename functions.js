@@ -47,10 +47,10 @@ export const playDogGame = (dog, selectedName) => {
         dog.drink();
     });
     customButton1.addEventListener("click", () => {
-        dog.fetch();
+        dog.fetch(bars);
     });
     customButton2.addEventListener("click", () => {
-        dog.walk();
+        dog.walk(bars);
     });
     document.addEventListener("keyup", (event) => {
         if (event.key === 'f') {
@@ -64,12 +64,12 @@ export const playDogGame = (dog, selectedName) => {
             drinkButtonAudio.play();
         }
         else if (event.key === 'h') {
-            dog.fetch();
+            dog.fetch(bars);
             customButton1Audio.load();
             customButton1Audio.play();
         } 
         else if (event.key === 'j') {
-            dog.walk();
+            dog.walk(bars);
             customButton2Audio.load();
             customButton2Audio.play();
         }
@@ -136,10 +136,10 @@ export const playCatGame = (cat, selectedName) => {
         cat.drink();
     });
     customButton1.addEventListener("click", () => {
-        cat.groom();
+        cat.groom(bars);
     });
     customButton2.addEventListener("click", () => {
-        cat.playWool();
+        cat.playWool(bars);
     });
     document.addEventListener("keyup", (event) => {
         if (event.key === 'f') {
@@ -153,12 +153,12 @@ export const playCatGame = (cat, selectedName) => {
             drinkButtonAudio.play();
         }
         else if (event.key === 'h') {
-            cat.groom();
+            cat.groom(bars);
             customButton1Audio.load();
             customButton1Audio.play();
         } 
         else if (event.key === 'j') {
-            dog.playWool();
+            cat.playWool(bars);
             customButton2Audio.load();
             customButton2Audio.play();
         }
@@ -222,10 +222,10 @@ export const playHamsterGame = (hamster, selectedName) => {
         hamster.drink();
     });
     customButton1.addEventListener("click", () => {
-        hamster.pet();
+        hamster.pet(bars);
     });
     customButton2.addEventListener("click", () => {
-        hamster.runOnWheel();
+        hamster.runOnWheel(bars);
     });
     document.addEventListener("keyup", (event) => {
         if (event.key === 'f') {
@@ -239,12 +239,12 @@ export const playHamsterGame = (hamster, selectedName) => {
             drinkButtonAudio.play();
         }
         else if (event.key === 'h') {
-            hamster.pet();
+            hamster.pet(bars);
             customButton1Audio.load();
             customButton1Audio.play();
         } 
         else if (event.key === 'j') {
-            hamster.runOnWheel();
+            hamster.runOnWheel(bars);
             customButton2Audio.load();
             customButton2Audio.play();
         }
