@@ -199,6 +199,7 @@ span {
 
 .image {
     width: 300px;
+    border: 3px solid black;
 }
 
 #dogPicDiv {
@@ -340,7 +341,7 @@ span {
   animation: head-move 1s ease-in-out infinite;
   position: relative;
   left: -7%;
-  top: 14%;
+  top: 16%;
 }
 
 .hamster-body {

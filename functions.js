@@ -213,7 +213,7 @@ export const playHamsterGame = (hamster, selectedName) => {
     let hamsterStats = ["health", "hunger", "thirst", "interested"];
     petTitle.innerHTML = `Look after your hamster - ${selectedName}`;
     hamsterAnimations.style.display = "flex";
-    hamsterHead.src = "./images/"
+    hamsterHead.src = "./images/happyHamster.png";
     customSpan.textContent = "INTEREST";
     customButton1.textContent = "Pet";
     customButton2.textContent = "Run on wheel";
@@ -281,13 +281,13 @@ export const playHamsterGame = (hamster, selectedName) => {
         for (let i = 0; i < hamsterStats.length; i++) {
             if (hamster[hamsterStats[i]] < 65 && hamster[hamsterStats[i]] >= 31) {
                 bars[i].style.backgroundColor = "orange";
-                hamsterHead.src = "./images/mediumhamster.png"
+                hamsterHead.src = "./images/hamsterHeadOK.png"
             } else if (hamster[hamsterStats[i]] <= 30) {
                 bars[i].style.backgroundColor = "red";
-                hamsterHead.src = "./images/sadhamster.png"
+                hamsterHead.src = "./images/hamsterHeadSad.png"
             } else {
                 bars[i].style.backgroundColor = "green";
-                hamsterHead.src = "./images/hamster.jfif"
+                hamsterHead.src = "./images/happyHamster.png"
             }
         }
     }, 500);
