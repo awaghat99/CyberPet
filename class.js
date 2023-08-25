@@ -5,7 +5,7 @@ class Animals {
         this.thirst = 100;
     }
     eat() {
-        this.health += 10;
+        this.health += 5;
         this.hunger += 10;
         if (this.health > 100) {
             this.health = 100;
@@ -15,7 +15,7 @@ class Animals {
         }
     }
     drink() {
-        this.health += 10;
+        this.health += 5;
         this.thirst += 10;
         if (this.health > 100) {
             this.health = 100;
