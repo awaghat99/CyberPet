@@ -16,11 +16,12 @@ const dogPicDiv = document.getElementById("dogPicDiv");
 const catPicDiv = document.getElementById("catPicDiv");
 const hamsterPicDiv = document.getElementById("hamsterPicDiv");
 const deadPicDiv = document.getElementById("deadPicDiv");
-const eatButtonAudio = document.getElementById("eatButtonAudio");
-const drinkButtonAudio = document.getElementById("drinkButtonAudio");
-const customButton1Audio = document.getElementById("customButton1Audio");
-const customButton2Audio = document.getElementById("customButton2Audio");
 const startAudio = document.getElementById("startSound");
+export const eatButtonAudio = document.getElementById("eatButtonAudio");
+export const drinkButtonAudio = document.getElementById("drinkButtonAudio");
+export const customButton1Audio = document.getElementById("customButton1Audio");
+export const customButton2Audio = document.getElementById("customButton2Audio");
+
 
 let selectedPet;
 let selectedName;
