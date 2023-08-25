@@ -95,28 +95,6 @@ h2 {
     cursor: pointer;
 }
 
-@media (max-width: 1400px) {
-    h1 {
-        font-size: 35px;
-    }
-    h2 {
-        font-size: 25px;
-    }
-    #petChoiceList {
-        padding: 0;
-        width: 50%;
-    }
-
-    #petChoiceList label {
-        font-size: 20px;
-    }
-
-    .box {
-        padding: 0 10px;
-    }
-}
-
-
 #pet-pages {
     display: none;
     flex-direction: column;
@@ -138,7 +116,7 @@ h2 {
     padding: 10px;
 }
 
-span{
+span {
     width: 100px;
 }
 
@@ -146,20 +124,19 @@ span{
     display: flex;
     justify-content: space-around;
     margin: 10px 0;
-
 }
 
-#hunger{
+#hunger {
     display: flex;
     justify-content: space-around;
 }
 
-#thirst{
+#thirst {
     display: flex;
     justify-content: space-around;
 }
 
-#custom{
+#custom {
     display: flex;
     justify-content: space-around;
 }
@@ -239,12 +216,12 @@ span{
     justify-content: center;
 }
 
-#deadPicDiv{
+#deadPicDiv {
     display: none;
     justify-content: center;
 }
 
-#backButton{
+#backButton {
     display: none;
     position: absolute;
     bottom: 0;
@@ -260,6 +237,51 @@ span{
     scale: 1.05;
 }
 
-#tryAgain{
+#tryAgain {
     display: none;
+}
+
+@media (max-width: 1400px) {
+    h1 {
+        font-size: 35px;
+    }
+    h2 {
+        font-size: 25px;
+    }
+    #petChoiceList {
+        padding: 0;
+        width: 50%;
+    }
+
+    #petChoiceList label {
+        font-size: 20px;
+    }
+
+    .box {
+        padding: 0 10px;
+    }
+
+    #pet-title {
+        font-size: 25px;
+    }
+
+    #bars {
+        width: 50%;
+    }
+
+    #try-again {
+        width: 40%;
+    }
+
+    .gameButtons {
+        font-size: 12px;
+    }
+
+    #buttons {
+        padding: 12px;
+    }
+
+    .image {
+        width: 150px;
+    }
 }
